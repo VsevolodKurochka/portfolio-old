@@ -24,3 +24,31 @@
     }
   }
 }
+
+//LINE
+.vline{
+  position: relative;
+  padding-bottom: 10px;
+
+  &:after{
+    @extend .pseudo;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: 7.5px;
+    background-color: setColor(corp);
+  }
+  &-big{
+    &:after{
+      height: 5px;
+      width: 80px;
+    } 
+  }
+  @include resp-min(sm){
+    padding-bottom: 20px;
+    &:after{
+      height: 10px;
+      width: 200px;
+    }
+  }
+}

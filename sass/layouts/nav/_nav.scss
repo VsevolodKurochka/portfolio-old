@@ -5,21 +5,22 @@
 		color: setColor(corp);
 		@extend .bold;
 	}
+	&-logo{
+		&-responsive{
+			font-size: 0;
+		}
+	}
 	&-menu{
 		li{
 			&.current-menu-item{
-				background-color: #bb8ecd;
+				background-color: setColor(corp, light);
 				a{
 					color: setColor(black);
 				}
 			}
 		}
 	}
-	&-logo{
-		&-responsive{
-			font-size: 0;
-		}
-	}
+	
 	@include resp-max(md){
 		&-logo{
 			img{
@@ -180,6 +181,11 @@
 			}
 			&-menu-btn{
 				display: none;
+			}
+		}
+		@include resp-min(bigLg){
+			&-logo, &-menu li{
+				padding-left: 60px;
 			}
 		}
 	}
