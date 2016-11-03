@@ -90,7 +90,10 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 .vcontainer{
   @include resp-min(lg){
-    width: $container;
+    width: 945px;
+  }
+  @include resp-min(bigLg){
+    width: 1170px;
   }
   &-small{
     @include resp-min(lg){

@@ -6,13 +6,21 @@
       top: 0;
       width: 20%;
       height: 100%;
-      padding: 15px;
-      background-color: #f0f0f0;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: setColor(corp);
       z-index: 1;
     }
     &-wrapper{
       float: right;
       width: 80%;
+    }
+  }
+}
+@include resp-max(md){
+  .main{
+    &-wrapper{
+      margin-top: 56px;
     }
   }
 }

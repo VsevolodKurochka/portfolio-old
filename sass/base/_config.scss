@@ -9,8 +9,8 @@ $colors: (
 		base 	: #5bb85d
 	),
  	corp: (
-		base	: #ff8001,
-		light : #ffaa54
+		base	: #9B59B6,
+		light : lighten(#9B59B6, 15%)
  	),
  	light: (
 		base  : #fff
@@ -24,11 +24,12 @@ $sizes: (
 );
 
 $breakpoints: (
-  lg:   1200px,
-  md:   1025px,
-  sm:   768px,
-  xs:   480px,
-  exs:  320px
+	bigLg : 1500px,
+  lg 		: 1200px,
+  md 		: 1025px,
+  sm 		: 768px,
+  xs 		: 480px,
+  exs 	: 320px
 );
 
 $grid-system: (
@@ -36,8 +37,8 @@ $grid-system: (
 	columnName            : "vcol",
 	width 								: 100%,
 	gutter 								: 15px,
-	containerWidth 				: 1170px,
-	containerSmallWidth 	: 970px,
+	//containerWidth 				: 1170px,
+	//containerSmallWidth 	: 970px,
 	menuExists            : true,
 	menuViewBreakpoint    : map-get($breakpoints, md)
 );

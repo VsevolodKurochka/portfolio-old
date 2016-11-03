@@ -17,28 +17,26 @@
 </head>
 <body class="body">
 	<nav class="main-navigation vnav">
-		<div class="vnav-inner max-md-negative">
-			<div class="vcol-xs-12">
-				<div class="vnav-logo">
-					<button type="button" class="vnav-menu-btn" data-menu=".vnav-menu">
-            <span></span>
-          </button>
-          <div class="block-inline visible-md visible-lg">
-          	<img src="img/logo.png" alt="">
-          </div>
-          <div class="block-inline hidden-md hidden-lg">
-          	<img src="img/logo-responsive.png" alt="">
-          </div>
-      	</div>
-			</div>
+		<div class="vnav-inner">
+			<div class="vnav-logo">
+				<button type="button" class="vnav-menu-btn" data-menu=".vnav-menu">
+          <span></span>
+        </button>
+        <div class="block-inline visible-md visible-lg">
+        	<img src="img/logo.png" alt="">
+        </div>
+        <div class="block-inline hidden-md hidden-lg vnav-logo-responsive">
+        	<img src="img/logo.png" alt="">
+        </div>
+    	</div>
 			<!-- <div class="visible-md visible-lg vcol-xs-12 vcol-md-3 vpull-md-right text-md-right max-md-center">
 				<div class="vnav-text">
 					<p>+38 (063) 505 62 63</p>
 				</div>
 			</div>	 -->
-			<div class="vcol-xs-12 vnav-menu">
+			<div class="vnav-menu">
 				<ul>
-					<li><a class="anchor-menu" href="#sec0">Home</a></li>
+					<li class="current-menu-item"><a class="anchor-menu" href="#sec0">Home</a></li>
 					<li><a class="anchor-menu" href="#sec2">About</a></li>
 					<li><a class="anchor-menu" href="#sec3">Service</a></li>
 					<li><a class="anchor-menu" href="#sec4">Blog</a></li>
@@ -52,8 +50,8 @@
 			<div class="vcontainer">
 				<div class="vrow">
 					<div class="vcol-xs-12">
-						<h1 class="h1">Main_Title</h1>
-						<p></p>
+						<h1 class="h1">KitchenOfDesign</h1>
+						<h2 class="h2">The place where the idea of preparing</h2>
 					</div>
 				</div>
 			</div>
@@ -63,7 +61,7 @@
 				<div class="vrow">
 					<div class="vcol-xs-12">
 						<div class="cf">
-							<h1 class="h1">Эффекты кнопок</h1>
+							<!-- <h1 class="h1">Эффекты кнопок</h1> -->
 							<button class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform">Забронировать место в онлайн группе</button>
 							<button class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp">Shutter Out Vertical</button>	
 							<button class="vbtn vbtn-effect-shutter-horizontal-out vbtn-corp">Shutter Out Horizontal</button>
