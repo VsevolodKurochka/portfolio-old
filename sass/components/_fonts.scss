@@ -1,0 +1,26 @@
+/* ===================== 
+Start: Connect fonts      
+======================== */
+
+// @include connect-font(NordRegular,regular);
+// @include connect-font(NordLight,light);
+// @include connect-font(NordMedium,medium);
+// @include connect-font(NordBold,bold);
+.robotoSlab{
+	font-family: 'Roboto Slab', serif;
+}
+.regular{
+	font-weight: 400;
+}
+.thin{
+	font-weight: 100;
+}
+.light{
+	font-weight: 300;
+}
+.bold{
+	font-weight: 700;
+}
+/* =====================
+End:  Connect fonts
+======================== */

@@ -1,0 +1,154 @@
+//MIXIN MEDIA
+$error: "This variable we do not have, sorry. Please try to change variable";
+@mixin resp-min($breakpoint, $breakpoints: $breakpoints){
+  $value: map-get($breakpoints,$breakpoint);
+  @if $value != null  {
+    @media (min-width: $value ) {
+      @content;
+    }
+  }
+  @else{
+     @error $error + " #{$breakpoint}";
+  }
+}
+@mixin resp-max($breakpoint, $breakpoints: $breakpoints){
+  $value: map-get($breakpoints,$breakpoint);
+  @if $value != null { 
+    @media (max-width: $value - 1px) {
+      @content;
+    } 
+  }
+  @else{
+     @error $error + " #{$breakpoint}";
+  }
+}
+
+//MIXIN FONT
+@mixin connect-font($font,$class_name: $font){
+  @font-face{
+    font-family: $font;
+    src: local("#{$font}"), 
+    url(../fonts/#{$font}.ttf);
+  }
+  @if $class_name != null{
+    .#{$class_name}{
+      font-family: $font;
+    }
+  }@else{
+    .#{$font}{
+      font-family: $font;
+    }
+  }
+}
+
+//MIXIN SIZES
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints){
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+    @if $fs-breakpoint != null{
+      @media (min-width: $fs-breakpoint){
+        font-size: $fs-font-size;
+      }
+    }@else{
+      @error 'No size';
+    }
+  } 
+}
+@mixin size($size){
+  $value: map-get($sizes, $size);
+  @if $value != null{
+    font-size: $value;
+  }
+  @else{
+    @error 'Sorry, no size #{$size}';
+  }
+}
+
+// MIXIN BACKGROUND
+@mixin bg($url, $pos: 0 0, $repeat: no-repeat, $size: cover){
+	background: url($url) $pos $repeat;
+	background-size: $size;
+}
+//CREATE COLUMNS
+@mixin make-column($class,$push: "push",$pull: "pull",$offset: "offset"){
+  @for $i from 1 through $columns{
+    $defaultValue: ($width/$columns) * $i;
+    @if $class != null{
+      .#{$columnName}-#{$class}-#{$i}{
+        width: $defaultValue;
+      }      
+    }
+    @if $push == "push"{
+      .#{$columnName}-#{$class}-push-#{$i}{
+        left: $defaultValue;
+      }      
+    }
+    @if $pull == "pull"{
+      .#{$columnName}-#{$class}-pull-#{$i}{
+        right: $defaultValue;
+      }
+    }
+    @if $offset == "offset" {
+      .#{$columnName}-#{$class}-offset-#{$i}{
+        margin-left: $defaultValue;
+      }
+    }
+  }
+}
+// HIDDEN AND VISIBLE UTILITIES
+@mixin visibility-hidden($hidden){
+  .hidden-#{$hidden}{
+    display: none !important;
+  }
+}
+@mixin visibility-visible($visible){
+  .visible-#{$visible}{
+    display: block !important;
+  }
+}
+
+// @mixin diffBrowsers($property){
+//   -ms-#{$property}
+// }
+@mixin transform($transform){
+  -webkit-transform: $transform;
+      -ms-transform: $transform;
+       -o-transform: $transform;
+          transform: $transform; 
+}
+@mixin borderR($borderR){
+  -webkit-border-radius: $borderR; 
+     -moz-border-radius: $borderR; 
+          border-radius: $borderR;  
+}
+@mixin transition($transition){
+  -webkit-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}
+@mixin shadow($shadow){
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+@mixin pseudo($contentText: ""){
+  content: $contentText;
+  position: absolute;
+}
+@mixin pseudoBlock($dirHor: left, $dirHorValue: 0, $dirVert: top, $dirVertValue: 0){
+  @include pseudo();
+  #{$dirHor}: $dirHorValue;
+  #{$dirVert}: $dirVertValue;
+}
+@mixin cf(){
+  &:after, &:before{
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+@mixin transitionMake($tr-time: ease, $tr-dur: .5s){
+  transition: all $tr-time $tr-dur;
+}

@@ -1,0 +1,18 @@
+.transition{
+  @include transitionMake();
+}
+.pseudo{
+  @include pseudo();
+}
+.vertical-image{
+  &:before{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;   
+  }
+  img{
+    max-height: 100%;
+    vertical-align: middle;   
+  }
+}
