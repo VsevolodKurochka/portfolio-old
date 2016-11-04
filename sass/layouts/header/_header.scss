@@ -3,6 +3,7 @@
 	min-height: 50px;
 	z-index: 1;
 	color: #fff;
+	padding: 75px 0;
 	//@include bg('../img/header.jpg', center center, no-repeat, cover);
 	&-covering{
 		position: absolute;
@@ -14,6 +15,9 @@
 		z-index: -1;
 	}
 	@include resp-min(md){
+		padding: 125px 0;
+	}
+	@include resp-min(lg){
 		padding: 250px 0;
 	}
 	@include resp-max(md){

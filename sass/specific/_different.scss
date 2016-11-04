@@ -28,8 +28,7 @@
 //LINE
 .vline{
   position: relative;
-  padding-bottom: 10px;
-
+  padding-bottom: $gutter;
   &:after{
     @extend .pseudo;
     left: 0;
@@ -45,10 +44,148 @@
     } 
   }
   @include resp-min(sm){
-    padding-bottom: 20px;
+    padding-bottom: $gutter * 2;
     &:after{
       height: 10px;
       width: 200px;
     }
+  }
+}
+.vtabs{
+  &-wrap,
+  &-links,
+  &-content{
+    @extend .cf;
+  }
+  &-links{
+    margin-bottom: $gutter;
+    text-align: center;
+  }
+  &-list{
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 5px solid setColor(black, light);
+    font-size: 0;
+    a{
+      display: block;
+      min-width: 150px;
+      position: relative;
+      padding: 10px;
+      background-color: transparent;
+      text-decoration: none;
+      color: inherit;     
+      font-size: 18px;
+      @extend .transition;
+      &:after{
+        @extend .pseudo;
+        left: 0;
+        bottom: -15px;
+        width: 100%;
+        height: 5px;
+        opacity: 1;
+        @include transform(translateY(-7.5px));
+        @extend .transition;
+      }
+      &:hover{
+        @extend %effectTab;
+      }
+    }
+    li{
+      display: inline-block;
+      &.active{
+        a{
+          @extend %effectTab;
+        }
+      }
+    }
+    %effectTab{
+      color: setColor(corp);
+      &:after{
+        background-color: setColor(corp, light);
+        @include transform(none);
+      }
+    } 
+  }
+  &-content{
+    padding: $gutter * 2;
+    &-inner{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+  }
+}
+.vloop{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  &-wrap{
+    padding: 0;
+  }
+  img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include transitionMake($tr-prop: transform);
+  }
+  &-image{
+    &--main{
+      z-index: 2;
+    }
+    &--hover{
+      z-index: 1;
+      @include transform(translateY(100%));
+    }
+  }
+  &-link{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+  &-details{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    opacity: 0;
+    z-index: 2;
+    text-align: center;
+    background-color: transparentize(setColor(corp, light), 0.2);
+    @extend .bold;
+    @extend .transition;
+    @include transform(translateY(100%));
+  }
+  &:hover{
+    .vloop{
+      &-image{
+        &--main{
+          @include transform(translateY(-100%));
+        }
+        &--hover{
+          @include transform(translateY(0) scale(1.3));
+        }
+      }
+      &-details{
+        opacity: 1;
+        @include transform(none);
+      }
+    }
+  }
+  @include resp-min(md){
+    height: 250px;
+  }
+  @include resp-min(lg){
+    height: 284px;
+  }
+  @include resp-min(bigLg){
+    height: 305px;
   }
 }

@@ -102,8 +102,12 @@ End:  HIDDEN AND VISIBLE UTILITIES
   }
 }
 %padding-block{
-  padding-top: 50px;
-  padding-bottom: 50px; 
+  padding-top: $gutter * 3;
+  padding-bottom: $gutter * 3;
+  @include resp-min(md){
+    padding-top: $gutter * 7;
+    padding-bottom: $gutter * 7; 
+  }
 }
 .vsection{
   @extend .cf;

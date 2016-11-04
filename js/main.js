@@ -92,7 +92,16 @@ $(document).ready(function(){
 				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").not($(this).parent()).removeClass("active");
 				$(this).closest(".vcollapse-wrap").children(".vcollapse-inner").children(".vcollapse-body").not($(this).next()).slideUp("slow");
 			});
-
+		//TABS
+			$('[data-tab="tab"]').click(function(){
+				//TABS LINK TOGGLE ACTIVE CLASS
+					$(this).closest(".vtabs-list").children("li").removeClass(active);
+					$(this).parent().addClass(active);
+				//TABS CONTENT SHOW
+					var tabTarget = $(this).attr('data-tab-target');
+					$(tabTarget).addClass(active);
+					$(".vtabs-content > div").not($(tabTarget)).removeClass(active);			
+			});
 		//$(window).stellar();
 		//DEVELOPE
 		// var widthDevice = $(window).width();
