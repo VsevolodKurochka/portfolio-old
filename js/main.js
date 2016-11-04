@@ -102,6 +102,20 @@ $(document).ready(function(){
 					$(tabTarget).addClass(active);
 					$(".vtabs-content > div").not($(tabTarget)).removeClass(active);			
 			});
+
+		//STYLING APPEAR ELEMENTS
+			var elementVisible = function(){
+				$(".vloading-mask").each(function(){
+					if ( $(this).visible() ) {
+						$(this).addClass(active);
+					}else{
+						$(this).removeClass(active);
+					}
+				});
+			}
+			elementVisible();
+			$(window).on('scroll', elementVisible );
+			
 		//$(window).stellar();
 		//DEVELOPE
 		// var widthDevice = $(window).width();

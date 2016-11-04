@@ -5,22 +5,16 @@
 		color: setColor(corp);
 		@extend .bold;
 	}
-	&-logo{
-		&-responsive{
-			font-size: 0;
-		}
+	&-inf{
+		margin-top: 30px;
+		padding: 15px;
+  	text-align: right;
+  	border-top: 1px solid transparentize(setColor(corp, light), 0.7);
 	}
-	&-menu{
-		li{
-			&.current-menu-item{
-				background-color: setColor(corp, light);
-				a{
-					color: setColor(black);
-				}
-			}
-		}
-	}
-	
+	&-inf,
+	&-logo-responsive{
+		font-size: 0;
+	}	
 	@include resp-max(md){
 		&-logo{
 			img{
@@ -33,9 +27,11 @@
 		&-menu{
 			@extend %vnav-transitionDef;
 			li{
-				display: block;
+				display: block;	
 	 			text-transform: uppercase;
 				a{
+					padding: 15px;
+					display: block;
 					@extend .tdn;
 					@extend .relative;
 					color: #f9e9ff;
@@ -156,13 +152,19 @@
 		    	@include transform(none);
 		    }
 		    li{
-		    	display: block;
+		    	
 		    	a{
 		    		color: #fff;
-		    		display: block;
-		    		padding: 15px;
-		    		margin-bottom: 15px;
-		    		background-color: setColor(corp, light);
+		    		
+		    		margin-bottom: 15px;	
+		    	}
+		    	&.current-menu-item{
+		    		a{
+		    			&:after{
+		    				opacity: 1;
+								@include transform(scaleX(1) translateY(0) );
+		    			}
+		    		}
 		    	}
 		    }
 			}
@@ -176,7 +178,13 @@
 			}
 			&-menu{
 				li{
-					padding: 15px;
+					
+					&.current-menu-item{
+						background-color: setColor(corp, light);
+						a{
+							color: setColor(black);
+						}
+					}
 				}
 			}
 			&-menu-btn{
@@ -184,7 +192,7 @@
 			}
 		}
 		@include resp-min(bigLg){
-			&-logo, &-menu li{
+			&-logo, &-menu li a{
 				padding-left: 60px;
 			}
 		}

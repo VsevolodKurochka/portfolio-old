@@ -152,3 +152,11 @@ $error: "This variable we do not have, sorry. Please try to change variable";
 @mixin transitionMake($tr-prop: all, $tr-time: ease, $tr-dur: .5s){
   transition: $tr-prop $tr-time $tr-dur;
 }
+@mixin keyframes($name){
+  @-webkit-keyframes #{$name}{
+    @content;
+  }
+  @keyframes #{$name}{
+    @content;
+  }
+}
