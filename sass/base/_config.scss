@@ -1,4 +1,5 @@
 //SETTING FOR DEFAULT FONT
+$corporativeColor: #006f70;
 $colors: (
 	black: (
 		base 	: #252525,
@@ -9,8 +10,8 @@ $colors: (
 		base 	: #5bb85d
 	),
  	corp: (
-		base	: #006f70,
-		light : lighten(#006f70, 15%)
+		base	: $corporativeColor,
+		light : lighten($corporativeColor, 15%)
  	),
  	light: (
 		base  : #fff

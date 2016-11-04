@@ -281,7 +281,16 @@
     display: block;
     height: 100%;
     z-index: 1;
+    text-decoration: none;  
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    line-height: 40px;    
     @extend %borderR100;
+    &:before{
+      display: inline-block;
+      vertical-align: middle;
+    }
     &:after{
       @extend .pseudo;
       @extend %borderR100;
@@ -305,7 +314,7 @@
     }
     &.vk{
       &:after{
-        background-color: #45668e;
+        background-color: #3f7bb9;
       } 
     }
     &.fb{
@@ -320,7 +329,7 @@
     }
     &.inst{
       &:after{
-        background-color: #517fa4;
+        background-color: #86603b;
       } 
     }
   }

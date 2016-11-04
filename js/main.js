@@ -21,7 +21,7 @@ $(document).ready(function(){
 				$(this).toggleClass(active);
 				toggler();
 			});
-			$('.anchor-menu').click(function(){
+			$('.anchor-menu, a[href*="#"]').click(function(){
 				var href = $(this).attr('href');
 				$('body,html').animate({
 					scrollTop: $(href).offset().top
@@ -108,9 +108,7 @@ $(document).ready(function(){
 				$(".vloading-mask").each(function(){
 					if ( $(this).visible() ) {
 						$(this).addClass(active);
-					}else{
-						$(this).removeClass(active);
-					}
+					}				
 				});
 			}
 			elementVisible();
