@@ -24,7 +24,21 @@
     }
   }
 }
-
+.main{
+  &-wrapper{
+    @extend .relative;
+    // &:before{
+    //   @extend .pseudo;
+    //   left: 50%;
+    //   top: 0;
+    //   width: 1px;
+    //   margin-left: -0.5px;
+    //   height: 100%;
+    //   background-color: #000;
+    //   z-index: 10;
+    // }
+  }
+}
 .vline{
   @extend .relative;
   padding-bottom: $gutter;
@@ -331,6 +345,28 @@
       &:after{
         background-color: #86603b;
       } 
+    }
+  }
+}
+.border{
+  overflow: hidden;
+  &:before{
+    border: 1024px solid transparent;
+    border-bottom: 75px solid #fff;
+  }
+  @include resp-min(md){
+    &:before{
+      border: 1920px solid transparent;
+      border-bottom: 150px solid #fff;
+    }
+  }
+  &-right{
+    @extend .border;
+    &:before{
+      @extend .pseudo;
+      right: 0;
+      bottom: -20px;
+      border-right: 0px solid rgb(255, 255, 255);
     }
   }
 }
