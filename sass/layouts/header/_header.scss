@@ -3,7 +3,7 @@
 	min-height: 50px;
 	z-index: 1;
 	color: #fff;
-	padding: 75px 0 120px;
+	padding: 75px 0 125px;
 	//@include bg('../img/header.jpg', center center, no-repeat, cover);
 	&:after{
 		@extend .pseudo;

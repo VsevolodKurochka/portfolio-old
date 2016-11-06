@@ -672,7 +672,7 @@ Start: HEADER
   min-height: 50px;
   z-index: 1;
   color: #fff;
-  padding: 75px 0 120px;
+  padding: 75px 0 125px;
 }
 .header:after {
   left: 0;
@@ -1044,7 +1044,7 @@ End:  START FOOTER
 }
 @media (max-width: 1024px) {
   .main-wrapper {
-    margin-top: 56px;
+    margin-top: 55px;
   }
 }
 .vline {
