@@ -1,0 +1,60 @@
+doctype html
+html(lang="ru")
+	head
+		title Portfolio
+		meta(name="description" content="")
+		include includes/header/head
+		include includes/mixins/mixins
+	body
+		include includes/nav/nav
+		main.main-wrapper
+			header.header.border-right(data-parallax="scroll" data-image-src="img/header.png" data-speed="0.4")
+				.vcontainer
+					.cf
+						.vloading-mask
+							h1.h1.vline.vline-big.vloading-mask-inner KitchenOfDesign
+					.cf
+						.vloading-mask
+							h2.h2.vloading-mask-inner The place where the idea can preparing
+			//- section.vsection#about
+			//- 	.vcontainer
+			//- 		h3.h3
+			//- 			span.vtitle-inner Who am <span class="color-corp">I</span>?
+			//- 		.about-wrap
+			//- 			.about-image
+			//- 				img(src="img/man.png" alt="")
+						h4.about-title Vsevolod Kurochka
+			section.vsection#portfolio
+				.vcontainer
+					h3.h3
+						span.vtitle-inner Portfolio
+					.vtabs-wrap
+						.vtabs-links
+							ul.vtabs-list
+								+tabItem("#vtab1", "active") Development
+								+tabItem("#vtab2") Wordpress
+								+tabItem("#vtab3") Responsive
+						.vtabs-content.padding-content
+							.vtabs-content-inner.active#vtab1
+								+loop("img/image1.jpg", "img/image2.jpg") Business Amazon
+								+loop("img/image2.jpg", "img/image1.jpg") Business Amazon
+								+loop("img/image1.jpg", "img/image2.jpg") Business Amazon
+								+loop("img/image2.jpg", "img/image1.jpg") Business Amazon
+								+loop("img/image1.jpg", "img/image2.jpg") Business Amazon
+								+loop("img/image2.jpg", "img/image1.jpg") Business Amazon
+		// MODAL FORM
+		.vmodal.fade#modalform
+			.vmodal-dialog
+				.vmodal-header
+					button(type="button" class="vmodal-close" data-close="vmodal") &times;
+					p.vmodal-title Заголовок_формы
+					p.vmodal-p Текст_формы
+				.vmodal-body
+					form(action="" class="vmain-form")
+						input(type="text" placeholder="Имя")
+						input(type="email" placeholder="E-mail")
+						input(type="text" placeholder="Телефон")
+						button.vbtn.vbtn-effect-bounce-top.vbtn-corp Получить!
+				.vmodal-footer.text-center
+					p.text_smaller *Ваши данные <span class="bold">никогда не будут</span><br>переданы 3-м лицам
+		//button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе

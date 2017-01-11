@@ -1,0 +1,17 @@
+mixin item(href, active)
+	if(active)
+		li(class=active): a( href=href ): block
+	else	
+		li: a( href=href ): block
+mixin tabItem(href, active)
+	if(active)
+		li(class=active): a(class="vtabs-link" data-tab="tab" data-tab-target=href): block
+	else
+		li: a(class="vtabs-link" data-tab="tab" data-tab-target=href): block
+mixin loop(mainSrc, hoverSrc)
+	.vak-xs-12.vak-sm-6.vak-md-4.vloop-wrap
+		.vloop
+			img(class="vloop-image--main" src=mainSrc)
+			a(href="#" class="vloop-link")
+			img(class="vloop-image--hover" src=hoverSrc)
+			.vloop-details: span.vloop-title: block

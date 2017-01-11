@@ -1,0 +1,32 @@
+.vmain-form{
+  width: 100%;
+  @extend .center-block;
+  @include resp-min(sm){
+    &-fixed{
+      width: 300px;
+    }
+  }
+  
+  input{
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: #000;
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
+    @extend .block-inline;
+    @extend .regular;
+    @extend .transition;
+    &:focus{
+      border-color: setColor(corp);
+    }
+  }
+  .vbtn{
+    width: 100%;
+  }
+}

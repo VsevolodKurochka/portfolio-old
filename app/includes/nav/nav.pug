@@ -1,0 +1,25 @@
+include ../mixins/mixins
+nav.vnav.main-navigation
+  .vnav-inner
+    .vnav-logo
+      button(type="button" class="vnav-menu-btn" data-menu=".vnav-menu")
+        span
+      .block-inline.vvisible-md.vvisible-lg
+        a(href="#")
+          img(src="img/logo.png" alt="")
+    .vnav-menu
+      ul
+        +item("#sec0", "current-menu-item") Home
+        +item("#portfolio") Portfolio
+        +item("#sec2") About
+        +item("#sec4") Blog
+        +item("#sec5") Contacts
+      .vnav-inf
+        .social-block
+          a(href="#" class="vk fa fa-vk")
+        .social-block
+          a(href="#" class="fb fa fa-facebook")
+        .social-block
+          a(href="#" class="google fa fa-google")
+        .social-block
+          a(href="#" class="inst fa fa-instagram")
