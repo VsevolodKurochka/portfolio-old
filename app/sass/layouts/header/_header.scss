@@ -3,8 +3,9 @@
 	min-height: 50px;
 	z-index: 1;
 	color: #fff;
-	padding: 75px 0 125px;
-	//@include bg('../img/header.jpg', center center, no-repeat, cover);
+	padding: 75px 0 160px;
+	@include bg('../img/header.png', center center, no-repeat, cover);
+	background-attachment: fixed;
 	&:after{
 		@extend .pseudo;
 		left: 0;
@@ -14,10 +15,10 @@
 		background-color: rgba(0,0,0,0.6);
 		z-index: -1;
 	}
-	@include resp-min(md){
-		padding: 125px 0 250px;
-	}
-	@include resp-min(lg){
-		padding: 250px 0;
-	}
+	// @include resp-min(md){
+	// 	padding: 125px 0 250px;
+	// }
+	// @include resp-min(lg){
+	// 	padding: 250px 0;
+	// }
 }

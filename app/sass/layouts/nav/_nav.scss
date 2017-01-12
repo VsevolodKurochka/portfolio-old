@@ -1,4 +1,5 @@
 .vnav{
+	display: none !important;
 	&-text{
 		@extend .block-inline;
 		padding: 0.5em 0;
@@ -29,15 +30,16 @@
 			li{
 				display: block;	
 	 			text-transform: uppercase;
-	 			@extend .transition;
 	 			&:hover{
-					//background-color: transparentize(setColor(corp, light), 100%);
-					background-color: setColor(corp, light);
+					//background-color: transparentize(setColor(corp, light), 0.2);
+					
 					// &:after{
 					// 	opacity: 1;
 					// 	@include transform(scaleX(1) translateY(0) );
 					// }
+					
 					a{
+						background-color: setColor(corp, light);
 						color: setColor(black);
 					}
 				}
@@ -47,7 +49,7 @@
 					color: #f9e9ff;
 					@extend .tdn;
 					@extend .relative;
-					
+					@extend .transition;
 					// &:after{
 					// 	@extend .pseudo;
 					// 	@extend .transition;
@@ -60,7 +62,10 @@
 					// 	@include borderR(20px);
 					// 	@include transform(scaleX(0) translateY(15px));
 					// }
-					
+					&.active{
+						background-color: setColor(corp, light);
+						color: setColor(black);
+					}
 				}
 			}
 			@at-root{

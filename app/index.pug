@@ -8,27 +8,27 @@ html(lang="ru")
 	body
 		include includes/nav/nav
 		main.main-wrapper
-			header.header.border-right(data-parallax="scroll" data-image-src="img/header.png" data-speed="0.4")
-				.vcontainer
+			header.header.border-right.target.text-center.vsection-full#home
+				.vcontainer.vertical-text-center
 					.cf
 						.vloading-mask
-							h1.h1.vline.vline-big.vloading-mask-inner KitchenOfDesign
+							h1.h1.vline.vline-big.vline-big-center.vloading-mask-inner KitchenOfDesign
 					.cf
 						.vloading-mask
 							h2.h2.vloading-mask-inner The place where the idea can preparing
-			section.vsection#about
-				.vcontainer
+			section.vsection.vsection-full.border-left.target#about
+				.vcontainer.vertical-text-center
 					h3.h3
 						span.vtitle-inner Who am <span class="color-corp">I</span>?
 					h4.h4.vtitle-small.light Hello, I'm Vsevolod Kurochka. Frontend Developer from Ukraine.<br>I have been crafting beautiful websites and making clients happy!
 					.cf.about-wrap
 						span.about-line
 						.cf
-							+about("fa fa-heart-o") I'm responsible
-							+about("fa fa-flag") I'm creative
-							+about("fa fa-clock-o") I'm punctual
+							+about("fa fa-heart-o", "circle") I'm responsible
+							+about("fa fa-flag", "circle") I'm creative
+							+about("fa fa-clock-o", "circle") I'm punctual
 							+about("fa fa-comments-o") I'm friendly
-			section.vsection#portfolio
+			section.vsection.vsection-full.target.border-left#portfolio
 				.vcontainer
 					h3.h3
 						span.vtitle-inner Portfolio
@@ -40,12 +40,12 @@ html(lang="ru")
 								+tabItem("#vtab3") Responsive
 						.vtabs-content.padding-content
 							.vtabs-content-inner.active#vtab1
-								+loop("img/image1.jpg", "img/image2.jpg") Business Amazon
-								+loop("img/image2.jpg", "img/image1.jpg") Business Amazon
-								+loop("img/image1.jpg", "img/image2.jpg") Business Amazon
-								+loop("img/image2.jpg", "img/image1.jpg") Business Amazon
-								+loop("img/image1.jpg", "img/image2.jpg") Business Amazon
-								+loop("img/image2.jpg", "img/image1.jpg") Business Amazon
+								+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
+								+loop("img/trand.jpg") Liftmarketing
+								+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
+								+loop("img/trand.jpg") Liftmarketing
+								+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
+								+loop("img/trand.jpg") Liftmarketing
 		// MODAL FORM
 		.vmodal.fade#modalform
 			.vmodal-dialog

@@ -11,10 +11,10 @@
       background-color: setColor(corp);
       z-index: 1;
     }
-    &-wrapper{
-      float: right;
-      width: 80%;
-    }
+    // &-wrapper{
+    //   float: right;
+    //   width: 80%;
+    // }
   }
 }
 @include resp-max(md){
@@ -55,12 +55,19 @@
       height: 5px;
       width: 80px;
     } 
+    &-center:after{
+      left: 50%;
+      margin-left: -40px;
+    }
   }
   @include resp-min(sm){
     padding-bottom: getComp(gutter) * 2;
     &:after{
       height: 10px;
       width: 200px;
+    }
+    &-big-center:after{
+      margin-left: -100px;
     }
   }
 }
@@ -216,26 +223,42 @@
   @extend .relative;
   overflow: hidden;
   width: 100%;
+
+  &:before{
+    @extend .pseudo;
+    @extend .transition;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+    //background: linear-gradient(to left, #44A08D , #093637);
+    background-color: #f3f3f3;
+  }
   &-wrap{
     padding: 0;
   }
   img{
     display: block;
-    width: 100%;
+    max-width: none;
+    width: 600px;
     height: 100%;
     position: absolute;
-    left: 0;
+    left: 50%;
+    margin-left: -300px;
     top: 0;
-    @include transitionMake($tr-prop: transform);
+    @include transitionMake(all, ease, 10s);
   }
   &-image{
     &--main{
-      z-index: 2;
-    }
-    &--hover{
       z-index: 1;
-      transform: translateY(100%);
     }
+    // &--hover{
+    //   z-index: 1;
+    //   transform: translateY(100%);
+    // }
   }
   &-link{
     position: absolute;
@@ -244,32 +267,62 @@
     width: 100%;
     height: 100%;
     z-index: 3;
+    cursor: url('../img/icon-zoom.png'), auto;
+  }
+  &-title{
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 17px;
   }
   &-details{
+    // position: absolute;
+    // left: 0;
+    // bottom: 0;
+    // width: 100%;
+    // padding: 15px;
+    // opacity: 0;
+    // z-index: 2;
+    // text-align: center;
+    // background-color: transparentize(setColor(corp, light), 0.2);
     position: absolute;
     left: 0;
-    bottom: 0;
+    top: 0;
     width: 100%;
-    padding: 15px;
+    height: 100%;
+    padding: 30px;
     opacity: 0;
     z-index: 2;
     text-align: center;
-    background-color: transparentize(setColor(corp, light), 0.2);
     @extend .bold;
     @extend .transition;
-    transform: translateY(100%);
+    &-inner{
+      position: relative;
+      height: 100%;
+      border: 10px solid setColor(corp);
+    }
   }
   &:hover &-details{
     opacity: 1;
     transform: none;
   } 
+  &:hover{
+    &:before{
+      opacity: 0.9;
+      visibility: visible;
+    }
+  }
   &:hover &-image{
     &--main{
-      transform: translateY(-100%);
+      transform: scale(1.3);
     }
-    &--hover{
-      transform: translateY(0) scale(1.3);
-    }
+    // &--hover{
+    //   transform: translateY(0) scale(1.3);
+    // }
   }
   @include resp-min(md){
     height: 250px;
@@ -354,23 +407,37 @@
 }
 .border{
   overflow: hidden;
+  padding: 75px 0 160px;
   &:before{
     border: 1024px solid transparent;
     border-bottom: 75px solid #fff;
   }
   @include resp-min(md){
     &:before{
-      border: 1920px solid transparent;
-      border-bottom: 150px solid #fff;
+      border: 2200px solid transparent;
+      border-bottom: 160px solid #fff;
+    }
+  }
+  &-right,
+  &-left{
+    @extend .border;
+    &:before{
+      @extend .pseudo;
+      bottom: -20px;
     }
   }
   &-right{
     @extend .border;
-    &:before{
-      @extend .pseudo;
+    &:before{    
       right: 0;
-      bottom: -20px;
-      border-right: 0px solid rgb(255, 255, 255);
+      border-right: 0px solid #fff;
+    }
+  }
+  &-left{
+    @extend .border;
+    &:before{
+      left: 0;
+      border-left: 0px solid #fff;
     }
   }
 }
@@ -380,10 +447,8 @@
   }
   &-block{
     text-align: center;
-    border: 2px solid setColor(black, light);
-    border-right: none;
-    border-left: none;
-    @extend .transition;
+    //border-left: none;
+    
     &-icon{
       font-size: 50px;
       line-height: 1;
@@ -395,28 +460,49 @@
     &-inner{
       position: relative;
       padding: 30px;
-      margin-left: -16px;
-      margin-right: -16px;
+      //margin-left: -16px;
+      //margin-right: -16px;
+      border: 2px solid setColor(black, light);
+      //border-right: none;
+      @extend .transition;
       &:after,
       &:before{
         @extend .pseudo;
         @extend .transition;
+        top: -62px;
         background-color: setColor(black, light);
       }
       &:before{
-        top: -70px;
         left: 50%;
         height: 60px;
         width: 2px;
         margin-left: -1px;
       }
       &:after{
-        top: -70px;
         left: 0;
         width: 100%;
         height: 2px;
       }
     }
+    &-circle{
+      top: -75px;
+      right: -34px;
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+      z-index: 1;
+      @extend .transition;
+    }
+
+    // &-line{
+    //   width: 60px;
+    //   height: 2px;
+    //   background-color: #000;
+    //   position: absolute;
+    //   left: -2px;
+    //   top: -2px;
+    //   @extend .transition;
+    // }
     &:first-child &-inner:after,
     &:last-child &-inner:after{
       width: 50%;
@@ -425,27 +511,30 @@
       left: auto;
       right: 0;
     }
-    &:hover{
+    &:hover &-inner{
       border-color: setColor(corp);
     }
     &:hover &-icon i{
       color: setColor(corp);
     }
-    &:hover &-inner:after,
-    &:hover &-inner:before{
-      background-color: setColor(corp);
-    }
+    // &:hover .about-circle{
+    //   background-color: setColor(corp);
+    // }
     // &:last-child{
     //   border-right: 2px solid setColor(black, light);
     // }
   }
   &-line{
-    position: absolute;
-    left: 50%;
+    margin-left: -1px;
     top: -36px;
+    left: 50%;
     height: 60px;
     width: 2px;
-    background-color: setColor(black, light);
+  }
+  &-block-circle,
+  &-line{
+    position: absolute;
+    background-color: setColor(black,light);
   }
 }
 @include resp-min(bigLg){

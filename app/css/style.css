@@ -298,7 +298,7 @@ Start: HIDDEN AND VISIBLE UTILITIES
 /* =====================
 End:  HIDDEN AND VISIBLE UTILITIES
 ======================== */
-.relative, [class*="vak"], .vcontainer, .vcontainer-small, .cf, .vrow, .vsection, .footer, .vtabs-wrap, .vtabs-links, .vtabs-content, .vmodal-header, .vmodal-body, .vmodal-footer, .vbtn, .list li, .header, .vnav-menu li a, .main-wrapper, .vline, .vtitle-inner, .vloading-mask, .vtabs-list a, .vloop, .social-block a, .vmodal-dialog {
+.relative, [class*="vak"], .vcontainer, .vcontainer-small, .cf, .vrow, .footer, .vtabs-wrap, .vtabs-links, .vtabs-content, .vmodal-header, .vmodal-body, .vmodal-footer, .vsection, .vbtn, .list li, .header, .vnav-menu li a, .main-wrapper, .vline, .vtitle-inner, .vloading-mask, .vtabs-list a, .vloop, .social-block a, .vmodal-dialog {
   position: relative;
 }
 
@@ -314,12 +314,12 @@ End:  HIDDEN AND VISIBLE UTILITIES
   margin-right: auto;
 }
 
-.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .vsection:before, .footer:before, .vtabs-wrap:before, .vtabs-links:before, .vtabs-content:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after, .cf:before, .vrow:before, .vcontainer:before, .vcontainer-small:before, .footer:before, .vtabs-wrap:before, .vtabs-links:before, .vtabs-content:before, .vmodal-header:before, .vmodal-body:before, .vmodal-footer:before {
   content: "";
   display: table;
 }
 
-.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .vsection:after, .footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after {
+.cf:after, .vrow:after, .vcontainer:after, .vcontainer-small:after, .footer:after, .vtabs-wrap:after, .vtabs-links:after, .vtabs-content:after, .vmodal-header:after, .vmodal-body:after, .vmodal-footer:after {
   clear: both;
 }
 
@@ -353,6 +353,13 @@ End:  HIDDEN AND VISIBLE UTILITIES
 .vsection {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+@media (min-height: 600px) {
+  .vsection-full {
+    width: 100%;
+    height: 100vh;
+  }
 }
 
 .vpull-left {
@@ -547,12 +554,12 @@ Start: Connect fonts
 /* =====================
 End:  Connect fonts
 ======================== */
-.transition, .vbtn, .vbtn:before, .vmain-form input, .vnav-menu li, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask, .vtabs-list a, .vtabs-list a:after, .vloop-details, .social-block a:after, .about-block, .about-block-icon i, .about-block-inner:after, .about-block-inner:before, .fade, .vmodal-dialog {
+.transition, .vbtn, .vbtn:before, .vmain-form input, .vnav-menu li a, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask, .vtabs-list a, .vtabs-list a:after, .vloop:before, .vloop-details, .social-block a:after, .about-block-icon i, .about-block-inner, .about-block-inner:after, .about-block-inner:before, .about-block-circle, .fade, .vmodal-dialog {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 
-.pseudo, .vbtn:before, .list li:after, .header:after, .vnav-menu-btn span:after, .vnav-menu-btn span:before, .vline:after, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask-inner:before, .vtabs-list a:after, .social-block a:after, .border-right:before, .about-block-inner:after, .about-block-inner:before {
+.pseudo, .vbtn:before, .list li:after, .header:after, .vnav-menu-btn span:after, .vnav-menu-btn span:before, .vline:after, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask-inner:before, .vtabs-list a:after, .vloop:before, .social-block a:after, .border-right:before, .border-left:before, .about-block-inner:after, .about-block-inner:before {
   content: "";
   position: absolute;
 }
@@ -567,6 +574,15 @@ End:  Connect fonts
 .vertical-image img {
   max-height: 100%;
   vertical-align: middle;
+}
+
+@media (min-height: 600px) {
+  .vertical-text-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
 }
 
 .vbtn {
@@ -782,7 +798,10 @@ Start: HEADER
   min-height: 50px;
   z-index: 1;
   color: #fff;
-  padding: 75px 0 125px;
+  padding: 75px 0 160px;
+  background: url("../img/header.png") center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .header:after {
@@ -794,21 +813,13 @@ Start: HEADER
   z-index: -1;
 }
 
-@media (min-width: 1025px) {
-  .header {
-    padding: 125px 0 250px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .header {
-    padding: 250px 0;
-  }
-}
-
 /* =====================
 End:  HEADER
 ======================== */
+.vnav {
+  display: none !important;
+}
+
 .vnav-text {
   padding: 0.5em 0;
   color: #006f70;
@@ -837,11 +848,8 @@ End:  HEADER
   text-transform: uppercase;
 }
 
-.vnav-menu li:hover {
-  background-color: #00bbbd;
-}
-
 .vnav-menu li:hover a {
+  background-color: #00bbbd;
   color: #000;
 }
 
@@ -849,6 +857,11 @@ End:  HEADER
   padding: 15px;
   display: block;
   color: #f9e9ff;
+}
+
+.vnav-menu li a.active {
+  background-color: #00bbbd;
+  color: #000;
 }
 
 .vnav-menu, .vnav-menu-btn, .vnav-menu-btn span, .vnav-menu-btn span:after, .vnav-menu-btn span:before {
@@ -1024,7 +1037,7 @@ End:  START FOOTER
 
 @media (min-width: 1200px) {
   .h1 {
-    font-size: 100px;
+    font-size: 130px;
   }
 }
 
@@ -1066,10 +1079,6 @@ End:  START FOOTER
   .h3 {
     font-size: 60px;
   }
-}
-
-.h4 {
-  color: #272727;
 }
 
 .h4.s-m {
@@ -1144,10 +1153,6 @@ End:  START FOOTER
     background-color: #006f70;
     z-index: 1;
   }
-  .main-wrapper {
-    float: right;
-    width: 80%;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -1173,6 +1178,11 @@ End:  START FOOTER
   width: 80px;
 }
 
+.vline-big-center:after {
+  left: 50%;
+  margin-left: -40px;
+}
+
 @media (min-width: 768px) {
   .vline {
     padding-bottom: 30px;
@@ -1180,6 +1190,9 @@ End:  START FOOTER
   .vline:after {
     height: 10px;
     width: 200px;
+  }
+  .vline-big-center:after {
+    margin-left: -100px;
   }
 }
 
@@ -1340,31 +1353,36 @@ End:  START FOOTER
   width: 100%;
 }
 
+.vloop:before {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  background-color: #f3f3f3;
+}
+
 .vloop-wrap {
   padding: 0;
 }
 
 .vloop img {
   display: block;
-  width: 100%;
+  max-width: none;
+  width: 600px;
   height: 100%;
   position: absolute;
-  left: 0;
+  left: 50%;
+  margin-left: -300px;
   top: 0;
-  -webkit-transition: -webkit-transform ease 0.5s;
-  transition: -webkit-transform ease 0.5s;
-  transition: transform ease 0.5s;
-  transition: transform ease 0.5s, -webkit-transform ease 0.5s;
+  -webkit-transition: all ease 10s;
+  transition: all ease 10s;
 }
 
 .vloop-image--main {
-  z-index: 2;
-}
-
-.vloop-image--hover {
   z-index: 1;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
 }
 
 .vloop-link {
@@ -1374,20 +1392,37 @@ End:  START FOOTER
   width: 100%;
   height: 100%;
   z-index: 3;
+  cursor: url("../img/icon-zoom.png"), auto;
+}
+
+.vloop-title {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 17px;
 }
 
 .vloop-details {
   position: absolute;
   left: 0;
-  bottom: 0;
+  top: 0;
   width: 100%;
-  padding: 15px;
+  height: 100%;
+  padding: 30px;
   opacity: 0;
   z-index: 2;
   text-align: center;
-  background-color: rgba(0, 187, 189, 0.8);
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+}
+
+.vloop-details-inner {
+  position: relative;
+  height: 100%;
+  border: 10px solid #006f70;
 }
 
 .vloop:hover .vloop-details {
@@ -1396,14 +1431,14 @@ End:  START FOOTER
           transform: none;
 }
 
-.vloop:hover .vloop-image--main {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+.vloop:hover:before {
+  opacity: 0.9;
+  visibility: visible;
 }
 
-.vloop:hover .vloop-image--hover {
-  -webkit-transform: translateY(0) scale(1.3);
-          transform: translateY(0) scale(1.3);
+.vloop:hover .vloop-image--main {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
 }
 
 @media (min-width: 1025px) {
@@ -1492,26 +1527,35 @@ End:  START FOOTER
   background-color: #86603b;
 }
 
-.border, .border-right {
+.border, .border-right, .border-left {
   overflow: hidden;
+  padding: 75px 0 160px;
 }
 
-.border:before, .border-right:before {
+.border:before, .border-right:before, .border-left:before {
   border: 1024px solid transparent;
   border-bottom: 75px solid #fff;
 }
 
 @media (min-width: 1025px) {
-  .border:before, .border-right:before {
-    border: 1920px solid transparent;
-    border-bottom: 150px solid #fff;
+  .border:before, .border-right:before, .border-left:before {
+    border: 2200px solid transparent;
+    border-bottom: 160px solid #fff;
   }
+}
+
+.border-right:before, .border-left:before {
+  bottom: -20px;
 }
 
 .border-right:before {
   right: 0;
-  bottom: -20px;
-  border-right: 0px solid white;
+  border-right: 0px solid #fff;
+}
+
+.border-left:before {
+  left: 0;
+  border-left: 0px solid #fff;
 }
 
 .about-wrap {
@@ -1520,9 +1564,6 @@ End:  START FOOTER
 
 .about-block {
   text-align: center;
-  border: 2px solid #f3f3f3;
-  border-right: none;
-  border-left: none;
 }
 
 .about-block-icon {
@@ -1534,16 +1575,15 @@ End:  START FOOTER
 .about-block-inner {
   position: relative;
   padding: 30px;
-  margin-left: -16px;
-  margin-right: -16px;
+  border: 2px solid #f3f3f3;
 }
 
 .about-block-inner:after, .about-block-inner:before {
+  top: -62px;
   background-color: #f3f3f3;
 }
 
 .about-block-inner:before {
-  top: -70px;
   left: 50%;
   height: 60px;
   width: 2px;
@@ -1551,10 +1591,18 @@ End:  START FOOTER
 }
 
 .about-block-inner:after {
-  top: -70px;
   left: 0;
   width: 100%;
   height: 2px;
+}
+
+.about-block-circle {
+  top: -75px;
+  right: -34px;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  z-index: 1;
 }
 
 .about-block:first-child .about-block-inner:after,
@@ -1567,7 +1615,7 @@ End:  START FOOTER
   right: 0;
 }
 
-.about-block:hover {
+.about-block:hover .about-block-inner {
   border-color: #006f70;
 }
 
@@ -1575,17 +1623,16 @@ End:  START FOOTER
   color: #006f70;
 }
 
-.about-block:hover .about-block-inner:after,
-.about-block:hover .about-block-inner:before {
-  background-color: #006f70;
-}
-
 .about-line {
-  position: absolute;
-  left: 50%;
+  margin-left: -1px;
   top: -36px;
+  left: 50%;
   height: 60px;
   width: 2px;
+}
+
+.about-block-circle, .about-line {
+  position: absolute;
   background-color: #f3f3f3;
 }
 
