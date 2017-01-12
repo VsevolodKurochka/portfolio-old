@@ -1,5 +1,5 @@
 body{
-  color: setColor(black);
+  color: setColor(black, dark);
   @extend .robotoSlab;
   @extend .regular;
   font-size: 18px;

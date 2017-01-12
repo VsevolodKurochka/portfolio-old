@@ -16,14 +16,18 @@ html(lang="ru")
 					.cf
 						.vloading-mask
 							h2.h2.vloading-mask-inner The place where the idea can preparing
-			//- section.vsection#about
-			//- 	.vcontainer
-			//- 		h3.h3
-			//- 			span.vtitle-inner Who am <span class="color-corp">I</span>?
-			//- 		.about-wrap
-			//- 			.about-image
-			//- 				img(src="img/man.png" alt="")
-						h4.about-title Vsevolod Kurochka
+			section.vsection#about
+				.vcontainer
+					h3.h3
+						span.vtitle-inner Who am <span class="color-corp">I</span>?
+					h4.h4.vtitle-small.light Hello, I'm Vsevolod Kurochka. Frontend Developer from Ukraine.<br>I have been crafting beautiful websites and making clients happy!
+					.cf.about-wrap
+						span.about-line
+						.cf
+							+about("fa fa-heart-o") I'm responsible
+							+about("fa fa-flag") I'm creative
+							+about("fa fa-clock-o") I'm punctual
+							+about("fa fa-comments-o") I'm friendly
 			section.vsection#portfolio
 				.vcontainer
 					h3.h3

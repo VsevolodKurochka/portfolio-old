@@ -15,3 +15,10 @@ mixin loop(mainSrc, hoverSrc)
 			a(href="#" class="vloop-link")
 			img(class="vloop-image--hover" src=hoverSrc)
 			.vloop-details: span.vloop-title: block
+mixin about(icon)
+	.vak-xs-12.vak-sm-6.vak-md-3.about-block
+		.about-block-inner
+			.about-block-icon
+				i(aria-hidden="true" class=icon)
+			.about-block-title
+				h4.h4: block

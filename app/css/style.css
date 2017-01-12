@@ -492,7 +492,7 @@ End:  GRID SYSTEM
 Start: MAIN STYLES      
 ======================== */
 body {
-  color: #000;
+  color: #333333;
   font-size: 18px;
   line-height: 1.42857143;
 }
@@ -547,12 +547,12 @@ Start: Connect fonts
 /* =====================
 End:  Connect fonts
 ======================== */
-.transition, .vbtn, .vbtn:before, .vmain-form input, .vnav-menu li, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask, .vtabs-list a, .vtabs-list a:after, .vloop-details, .social-block a:after, .fade, .vmodal-dialog {
+.transition, .vbtn, .vbtn:before, .vmain-form input, .vnav-menu li, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask, .vtabs-list a, .vtabs-list a:after, .vloop-details, .social-block a:after, .about-block, .about-block-icon i, .about-block-inner:after, .about-block-inner:before, .fade, .vmodal-dialog {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 
-.pseudo, .vbtn:before, .list li:after, .header:after, .vnav-menu-btn span:after, .vnav-menu-btn span:before, .vline:after, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask-inner:before, .vtabs-list a:after, .social-block a:after, .border-right:before {
+.pseudo, .vbtn:before, .list li:after, .header:after, .vnav-menu-btn span:after, .vnav-menu-btn span:before, .vline:after, .vtitle-inner:before, .vtitle-inner:after, .vloading-mask-inner:before, .vtabs-list a:after, .social-block a:after, .border-right:before, .about-block-inner:after, .about-block-inner:before {
   content: "";
   position: absolute;
 }
@@ -1120,7 +1120,7 @@ End:  START FOOTER
   text-decoration: none;
 }
 
-.text-center, .footer, .h3, .vmodal-title {
+.text-center, .footer, .h3, .vtitle-small, .vmodal-title {
   text-align: center;
 }
 
@@ -1181,6 +1181,15 @@ End:  START FOOTER
     height: 10px;
     width: 200px;
   }
+}
+
+.vtitle-small {
+  width: 500px;
+  margin: 0 auto 30px;
+  padding: 30px 60px;
+  border: 15px solid #f3f3f3;
+  color: #333333;
+  font-size: 20px;
 }
 
 .vtitle-inner {
@@ -1273,7 +1282,7 @@ End:  START FOOTER
 .vtabs-list {
   display: inline-block;
   padding-bottom: 10px;
-  border-bottom: 5px solid #ddd;
+  border-bottom: 5px solid #f3f3f3;
   font-size: 0;
 }
 
@@ -1503,6 +1512,88 @@ End:  START FOOTER
   right: 0;
   bottom: -20px;
   border-right: 0px solid white;
+}
+
+.about-wrap {
+  padding-top: 90px;
+}
+
+.about-block {
+  text-align: center;
+  border: 2px solid #f3f3f3;
+  border-right: none;
+  border-left: none;
+}
+
+.about-block-icon {
+  font-size: 50px;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.about-block-inner {
+  position: relative;
+  padding: 30px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
+.about-block-inner:after, .about-block-inner:before {
+  background-color: #f3f3f3;
+}
+
+.about-block-inner:before {
+  top: -70px;
+  left: 50%;
+  height: 60px;
+  width: 2px;
+  margin-left: -1px;
+}
+
+.about-block-inner:after {
+  top: -70px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.about-block:first-child .about-block-inner:after,
+.about-block:last-child .about-block-inner:after {
+  width: 50%;
+}
+
+.about-block:first-child .about-block-inner:after {
+  left: auto;
+  right: 0;
+}
+
+.about-block:hover {
+  border-color: #006f70;
+}
+
+.about-block:hover .about-block-icon i {
+  color: #006f70;
+}
+
+.about-block:hover .about-block-inner:after,
+.about-block:hover .about-block-inner:before {
+  background-color: #006f70;
+}
+
+.about-line {
+  position: absolute;
+  left: 50%;
+  top: -36px;
+  height: 60px;
+  width: 2px;
+  background-color: #f3f3f3;
+}
+
+@media (min-width: 1500px) {
+  .padding-content {
+    padding-left: 105px;
+    padding-right: 105px;
+  }
 }
 
 .fade {
