@@ -16,10 +16,11 @@
     vertical-align: middle;   
   }
 }
-@media (min-height: 600px){
+@media (min-width: 1200px) and (min-height: 600px){
   .vertical-text-center{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    
   }
 }

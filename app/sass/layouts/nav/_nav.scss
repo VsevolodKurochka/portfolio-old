@@ -1,210 +1,256 @@
 .vnav{
-	display: none !important;
-	&-text{
-		@extend .block-inline;
-		padding: 0.5em 0;
-		color: setColor(corp);
-		@extend .bold;
-	}
-	&-inf{
-		margin-top: 30px;
-		padding: 15px;
-  	text-align: right;
-  	border-top: 1px solid transparentize(setColor(corp, light), 0.7);
-	}
-	&-inf,
-	&-logo-responsive{
-		font-size: 0;
-	}	
-	@include resp-max(md){
-		&-logo{
-			img{
-				vertical-align: middle;
-				max-height: 28px;
+	@if ( map-get($grid-system, menuExists) == true ){
+		@at-root{
+			%vnav-transitionDef{
+				@include transitionMake($tr-dur: .3s);
 			}
 		}
-	}
-	@if ( map-get($grid-system, menuExists) == true ){
+		position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    background-color: setColor(corp);
+    border: 10px solid setColor(black);
+    transform: scale(0.2);
+    transform-origin: center;
+    @include transitionMake(all, cubic-bezier(0, 0.9, 0.36, 1.35), 0.5s)
+    &-inner{
+    	position: relative;
+    	height: 100%;
+    }
+    &-open &{
+    	opacity: 1;
+    	visibility: visible;
+    	transform: scale(1);
+    }
 		&-menu{
 			@extend %vnav-transitionDef;
 			li{
-				display: block;	
-	 			text-transform: uppercase;
-	 			&:hover{
-					//background-color: transparentize(setColor(corp, light), 0.2);
-					
-					// &:after{
-					// 	opacity: 1;
-					// 	@include transform(scaleX(1) translateY(0) );
-					// }
-					
-					a{
-						background-color: setColor(corp, light);
-						color: setColor(black);
-					}
-				}
+				display: block;		
+	 		// 	&:hover{	
+				// 	a{
+				// 		background-color: setColor(corp, light);
+				// 	}
+				// }
 				a{
-					padding: 15px;
-					display: block;
-					color: #f9e9ff;
+					padding: 15px 30px;
+					display: inline-block;
+					color: setColor(black);
+					text-transform: uppercase;
+					font-weight: bold;
 					@extend .tdn;
 					@extend .relative;
 					@extend .transition;
-					// &:after{
-					// 	@extend .pseudo;
-					// 	@extend .transition;
-					// 	top: 100%;
-					// 	left: 0;
-					// 	height: 3px;
-					// 	background-color: setColor(corp, light);
-					// 	opacity: 0;
-					// 	width: 100%;
-					// 	@include borderR(20px);
-					// 	@include transform(scaleX(0) translateY(15px));
-					// }
-					&.active{
-						background-color: setColor(corp, light);
-						color: setColor(black);
+					&:after{
+						@extend .pseudo;
+						@extend .transition;
+						left: 0;
+						top: 50%;
+						margin-top: -0.5px;
+						width: 0;
+						height: 1px;
+						background-color: setColor(black);
+						opacity: 0;
 					}
-				}
-			}
-			@at-root{
-				%vnav-transitionDef{
-					@include transitionMake($tr-dur: .3s);
-				}
-			}
-			&-btn{
-				display: inline-block;
-				vertical-align: middle;	
-				z-index: 11;	
-			  padding: 1px 6px;
-			  width: 48px;
-			  height: 34px;
-			  line-height: 34px;
-			  background-color: transparent;
-			  border: none;
-			  outline: none;
-			  @extend %vnav-transitionDef;
-			  transform: rotate(180deg);
-			  @at-root {
-			  	%vbtn-menu-default{
-			  		display: block;
-				  	margin: auto;
-				    width: 24px;
-				    height: 4px;
-				    background-color: setColor(light);
-				    border-radius: 2px;
-				   	@extend %vnav-transitionDef;
-			  	}
-			  	&.active{
-			  		%vbtn-menu-default{
-			  			background-color: setColor(black);
-			  		}
-			  	}
-			  }
-			  span{
-			  	@extend %vbtn-menu-default;
-			    position: relative;
-			    &:after,
-			    &:before{
-			    	@extend .pseudo;
-						@extend %vbtn-menu-default;
-					  transform-origin: left;
-			    }
-			    &:before{
-			    	top: -8px;
-			    }
-			    &:after{
-			    	top: 8px;
-			    }
-			  }	
-			  &.active{
-			  	transform: rotate(360deg);
-			  	span{
-			  		&:after,
-			  		&:before{
-			  			width: 15px;
-			  			top: 0;
-						  -ms-transform-origin: 1.71429px center;
-			  		}
-			  		&:before{
-						  transform: rotate(-40deg);
-			  		}
-			  		&:after{
-							transform: rotate(40deg);
-			  		}
-			  	}
-			  }	
-			}
-		}
-		@include resp-max(md){
-			@at-root{
-				%vnav-resp{
-					display: block;
-					position: fixed;
-					left: 0;
-					background-color: setColor(corp);
-				}
-			}	
-			top: 0;
-		  right: 0;
-			width: 100%;
-			z-index: 9999;
-			padding: 10px 0;
-			@extend %vnav-resp;
-			&-menu{
-				@extend %vnav-resp;
-				top: 54px;
-				padding: 0;
-		    width: 270px;
-		    height: 100%;
-		    transform: translateZ(0) translateX(-120%);
-		    &.active{
-		    	transform: none;
-		    }
-		    li{
-		    	
-		    	a{
-		    		color: #fff;
-		    		
-		    		margin-bottom: 15px;	
-		    	}
-		    	&.current-menu-item{
-		    		a{
-		    			&:after{
-		    				opacity: 1;
-								transform: scaleX(1) translateY(0);
-		    			}
-		    		}
-		    	}
-		    }
-			}
-		}
-		@include resp-min(md){
-			&-logo{
-				padding: 15px;
-				img{
-					max-width: 100px;
-				}
-			}
-			&-menu{
-				li{
-					
-					&.current-menu-item{
-						background-color: setColor(corp, light);
-						a{
-							color: setColor(black);
+					&:hover,
+					&.active{
+						&:after{
+							width: 100%;
+							opacity: 1;
 						}
 					}
 				}
 			}
-			&-menu-btn{
-				display: none;
+			&-btn{
+				position: fixed;
+	      top: 35px;
+	      left: 35px;
+	      z-index: 11;
+				display: inline-block;
+				vertical-align: middle;
+			  padding: 0;
+			  background-color: transparent;
+			  border: none;
+			  outline: none;
+			  @extend %vnav-transitionDef;
+			  &:after{
+			  	@extend .pseudo;
+			  	left: -23px;
+			  	top: -23px;
+			  	width: 75px;
+			  	height: 75px;
+			  	border-radius: 100%;
+			  	background-color: setColor(corp);
+			  	z-index: 1;
+			  	opacity: 0;
+			  	@extend %vnav-transitionDef;
+			  }
+			  .lines{
+			    position: relative;
+			    display: inline-block;
+			    vertical-align: middle;
+			    width: 30px;
+			    height: 27px;
+			    z-index: 2;
+			    span{
+			    	position: absolute;
+			    	left: 0;
+			    	display: block;
+			    	width: 100%;
+			    	height: 5px;
+			    	margin-bottom: 6px;
+			    	background-color: setColor(corp);
+			    	@extend %vnav-transitionDef;
+			    	&:nth-child(1){
+							top: 0;
+						}
+						&:nth-child(2){
+							top: 11px;
+						}
+						&:nth-child(3){
+							top: 22px;
+						}
+			    	&:last-child{
+			    		margin-bottom: 0;
+			    	}
+			    }
+			   //  &:after,
+			   //  &:before{
+			   //  	@extend .pseudo;
+						// @extend %vbtn-menu-default;
+					 //  transform-origin: left;
+			   //  }
+			   //  &:before{
+			   //  	top: -8px;
+			   //  }
+			   //  &:after{
+			   //  	top: 8px;
+			   //  }
+			  }
+			  .text{
+			  	display: none;
+			  	vertical-align: middle;
+			  	text-transform: uppercase;
+			  	color: setColor(light);
+			  	font-size: 18px;
+			  	line-height: 1;
+			  	margin-left: 20px;
+			  	@extend .bold;
+			  	@extend %vnav-transitionDef;
+			  }	
+			  &.active{
+			  	.lines{
+			  		span{
+							&:nth-child(1){
+								transform: rotate(45deg);
+							}
+							&:nth-child(3){
+								transform: rotate(-45deg);
+							}
+							&:nth-child(1),
+							&:nth-child(3){
+								top: 12px;
+							}
+							&:nth-child(2){
+								opacity: 0;
+							}
+			  		}
+			  		// &:after,
+			  		// &:before{
+			  		// 	width: 15px;
+			  		// 	top: 0;
+						 //  -ms-transform-origin: 1.71429px center;
+			  		// }
+			  		// &:before{
+						 //  transform: rotate(-40deg);
+			  		// }
+			  		// &:after{
+							// transform: rotate(40deg);
+			  		// }
+			  	}
+			  }	
+			  &.active,
+			  &.scrolled{
+			  	.lines{
+						span{
+							background-color: setColor(black);
+						}
+			  	}
+			  	.text{
+			  		opacity: 0;
+						transform: translateX(-10px);
+			  	}
+			  }
+			  &.scrolled{
+			  	&:after{
+			  		opacity: 1;
+			  	}
+			  }
 			}
 		}
-		@include resp-min(bigLg){
-			&-logo, &-menu li a{
-				padding-left: 60px;
+		&-inf{
+			position: absolute;
+			bottom: 15px;
+			width: 100%;
+			text-align: center;
+		}
+		@include resp-max(md){
+			&-menu{
+				padding: 45px 15px 15px;
+		    li{
+		    	margin-bottom: 7.5px;
+		    	&:last-child{
+		    		margin-bottom: 0;
+		    	}
+		    	a{
+		    		min-width: 165px;
+		    	}
+		    	// &.current-menu-item{
+		    	// 	a{
+		    	// 		&:after{
+		    	// 			opacity: 1;
+							// 	transform: scaleX(1) translateY(0);
+		    	// 		}
+		    	// 	}
+		    	// }
+		    }
+			}
+			&-menu{
+				text-align: center;
+			}
+		}
+		@include resp-min(md){
+			border-width: 15px;
+			&-menu{
+				li{
+					display: inline-block;
+				}
+				&-btn{
+					top: 60px;
+	      	left: 60px;
+					.text{
+						display: inline-block;
+					}
+				}
+			}
+			&-menu{
+				position: absolute;
+				width: 100%;
+				text-align: center;
+			}
+			&-menu{
+				top: 50%;
+				transform: translateY(-50%);
+				a{
+					font-size: 28px;
+				}
+			}
+			&-inf{
+				bottom: 37px;
 			}
 		}
 	}

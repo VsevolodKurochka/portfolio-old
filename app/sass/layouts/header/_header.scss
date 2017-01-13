@@ -15,6 +15,18 @@
 		background-color: rgba(0,0,0,0.6);
 		z-index: -1;
 	}
+	&-logo{
+		img{
+			max-height: 100px;
+		}
+	}
+	@include resp-min(sm){
+		&-logo{
+			img{
+				max-height: 150px;
+			}
+		}
+	}
 	// @include resp-min(md){
 	// 	padding: 125px 0 250px;
 	// }

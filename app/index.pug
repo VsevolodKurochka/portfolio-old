@@ -11,12 +11,15 @@ html(lang="ru")
 			header.header.border-right.target.text-center.vsection-full#home
 				.vcontainer.vertical-text-center
 					.cf
+						.header-logo
+							img(src="img/logo.png" alt="")
+					.cf
 						.vloading-mask
 							h1.h1.vline.vline-big.vline-big-center.vloading-mask-inner KitchenOfDesign
 					.cf
 						.vloading-mask
 							h2.h2.vloading-mask-inner The place where the idea can preparing
-			section.vsection.vsection-full.border-left.target#about
+			section.vsection.vsection-full.target#about
 				.vcontainer.vertical-text-center
 					h3.h3
 						span.vtitle-inner Who am <span class="color-corp">I</span>?
@@ -28,24 +31,32 @@ html(lang="ru")
 							+about("fa fa-flag", "circle") I'm creative
 							+about("fa fa-clock-o", "circle") I'm punctual
 							+about("fa fa-comments-o") I'm friendly
-			section.vsection.vsection-full.target.border-left#portfolio
+			section.vsection.vsection-full.target#portfolio
 				.vcontainer
-					h3.h3
-						span.vtitle-inner Portfolio
-					.vtabs-wrap
-						.vtabs-links
-							ul.vtabs-list
-								+tabItem("#vtab1", "active") Development
-								+tabItem("#vtab2") Wordpress
-								+tabItem("#vtab3") Responsive
-						.vtabs-content.padding-content
-							.vtabs-content-inner.active#vtab1
-								+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
-								+loop("img/trand.jpg") Liftmarketing
-								+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
-								+loop("img/trand.jpg") Liftmarketing
-								+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
-								+loop("img/trand.jpg") Liftmarketing
+					.vrow
+						h3.h3
+							span.vtitle-inner Portfolio
+						.vtabs-wrap
+							.vtabs-links
+								ul.vtabs-list
+									+tabItem("#vtab1", "active") Development
+									+tabItem("#vtab2") Wordpress
+									+tabItem("#vtab3") Responsive
+							.vtabs-content.padding-content
+								.cf.vtabs-content-inner.active#vtab1
+									+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
+									+loop("img/trand.jpg") Liftmarketing
+									+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
+									+loop("img/trand.jpg") Liftmarketing
+									+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
+									+loop("img/trand.jpg") Liftmarketing
+								.cf.vtabs-content-inner#vtab2
+									+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
+									+loop("img/trand.jpg") Liftmarketing
+									+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
+								.cf.vtabs-content-inner#vtab3
+									+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
+									+loop("img/trand.jpg") Liftmarketing
 		// MODAL FORM
 		.vmodal.fade#modalform
 			.vmodal-dialog

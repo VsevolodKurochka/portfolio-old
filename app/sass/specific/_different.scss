@@ -1,30 +1,26 @@
 @include resp-min(md){
   .main{
-    &-navigation{
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 20%;
-      height: 100%;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      background-color: setColor(corp);
-      z-index: 1;
-    }
+    // &-navigation{
+    //   position: fixed;
+    //   left: 0;
+    //   top: 0;
+    //   width: 20%;
+    //   height: 100%;
+    //   padding-top: 15px;
+    //   padding-bottom: 15px;
+    //   background-color: setColor(corp);
+    //   z-index: 1;
+    // }
     // &-wrapper{
     //   float: right;
     //   width: 80%;
     // }
   }
 }
-@include resp-max(md){
-  .main{
-    &-wrapper{
-      margin-top: 54px;
-    }
-  }
-}
 .main{
+  &-navigation{
+
+  }
   &-wrapper{
     @extend .relative;
     // &:before{
@@ -74,12 +70,10 @@
 .vtitle{
   &-small{
     @extend .text-center;
-    width: 500px;
     margin: 0 auto 30px;
-    padding: 30px 60px;
+    padding: 30px 15px;
     border: 15px solid #f3f3f3;
     color: setColor(black, dark);
-    font-size: 20px;
   }
   &-inner{
     @extend .relative;
@@ -115,6 +109,13 @@
           transform: rotate(-45deg) translateY(5px);
         }
       }
+    }
+  }
+  @include resp-min(sm){
+    &-small{
+      width: 500px;
+      font-size: 20px;
+      padding: 30px 60px;
     }
   }
 }
@@ -161,8 +162,6 @@
   }
   &-list{
     display: inline-block;
-    padding-bottom: 10px;
-    border-bottom: 5px solid setColor(black, light);
     font-size: 0;
     a{
       display: block;
@@ -189,7 +188,7 @@
       }
     }
     li{
-      display: inline-block;
+      display: block;
       &.active{
         a{
           @extend %effectTab;
@@ -212,18 +211,29 @@
       }
     }
   }
-  @include resp-min(lg){
-    &-content{
-      padding-left: getComp(gutter) * 2;
-      padding-right: getComp(gutter) * 2;
+  @include resp-min(sm){
+    &-list{
+      padding-bottom: 10px;
+      border-bottom: 5px solid setColor(black, light);
+      li{
+        display: inline-block;
+      }
+    }
+  }
+  @include resp-max(sm){
+    &-list{
+      li:not(:last-child){
+        margin-bottom: 30px;
+      }
     }
   }
 }
 .vloop{
   @extend .relative;
+
   overflow: hidden;
   width: 100%;
-
+  height: 215px;
   &:before{
     @extend .pseudo;
     @extend .transition;
@@ -239,17 +249,13 @@
   }
   &-wrap{
     padding: 0;
+    @extend .transition;
   }
   img{
     display: block;
-    max-width: none;
-    width: 600px;
+    width: 100%;   
     height: 100%;
-    position: absolute;
-    left: 50%;
-    margin-left: -300px;
-    top: 0;
-    @include transitionMake(all, ease, 10s);
+    @include transitionMake(transform, ease, 5s);
   }
   &-image{
     &--main{
@@ -324,8 +330,17 @@
     //   transform: translateY(0) scale(1.3);
     // }
   }
-  @include resp-min(md){
+  height: 200px;
+  @include resp-min(sm){
     height: 250px;
+    img{
+      max-width: none;
+      width: 600px;
+      position: absolute;
+      left: 50%;
+      margin-left: -300px;
+      top: 0;
+    }
   }
   @include resp-min(lg){
     height: 284px;
@@ -361,6 +376,8 @@
     &:before{
       display: inline-block;
       vertical-align: middle;
+      color: setColor(black);
+      @extend .transition;
     }
     &:after{
       @extend .pseudo;
@@ -378,6 +395,9 @@
       border: 3px solid setColor(corp, light);
     }
     &:hover{
+      &:before{
+        color: setColor(light);
+      }
       &:after{
         opacity: 1;
         transform: scale(1);
@@ -413,6 +433,7 @@
     border-bottom: 75px solid #fff;
   }
   @include resp-min(md){
+    padding-bottom: 200px;
     &:before{
       border: 2200px solid transparent;
       border-bottom: 160px solid #fff;
@@ -423,7 +444,7 @@
     @extend .border;
     &:before{
       @extend .pseudo;
-      bottom: -20px;
+      bottom: -2px;
     }
   }
   &-right{
@@ -446,9 +467,7 @@
     padding-top: 90px;
   }
   &-block{
-    text-align: center;
-    //border-left: none;
-    
+    text-align: center;  
     &-icon{
       font-size: 50px;
       line-height: 1;
@@ -460,10 +479,7 @@
     &-inner{
       position: relative;
       padding: 30px;
-      //margin-left: -16px;
-      //margin-right: -16px;
       border: 2px solid setColor(black, light);
-      //border-right: none;
       @extend .transition;
       &:after,
       &:before{
@@ -517,12 +533,6 @@
     &:hover &-icon i{
       color: setColor(corp);
     }
-    // &:hover .about-circle{
-    //   background-color: setColor(corp);
-    // }
-    // &:last-child{
-    //   border-right: 2px solid setColor(black, light);
-    // }
   }
   &-line{
     margin-left: -1px;
@@ -535,6 +545,45 @@
   &-line{
     position: absolute;
     background-color: setColor(black,light);
+  }
+  @include resp-max(md){
+    &-block{
+      margin-bottom: 60px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    @include resp-min(sm){
+      &-block{
+        &:nth-child(2) &-circle,
+        &:nth-child(3) &-circle,
+        &:nth-child(3) &-inner:after,
+        &:nth-child(4) &-inner:after{
+          display: none;
+        }
+        &:nth-child(2) &-inner:after{
+          width: 50%;
+        }
+      }
+    }
+  }
+  @include resp-max(sm){
+    &-wrap{
+      padding-top: 23px;
+    }
+    &-block{
+      &-inner{
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+      &-circle,
+      &-inner:after{
+        display: none;
+      }
+      &:nth-child(1) &-inner:before{
+        display: none;
+      }
+    }
   }
 }
 @include resp-min(bigLg){

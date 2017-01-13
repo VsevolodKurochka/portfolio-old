@@ -12,12 +12,9 @@
     <script src="js/main.js"></script>
   </head>
   <body>
-    <nav class="vnav main-navigation">
+    <button class="vnav-menu-btn js-toggle-menu" type="button" data-menu=".vnav-menu"><span class="lines"><span></span><span></span><span></span></span><span class="text">Menu</span></button>
+    <nav class="vnav">
       <div class="vnav-inner">
-        <div class="vnav-logo">
-          <button class="vnav-menu-btn" type="button" data-menu=".vnav-menu"><span></span></button>
-          <div class="block-inline vvisible-md vvisible-lg"><a href="#"><img src="img/logo.png" alt=""></a></div>
-        </div>
         <div class="vnav-menu">
           <ul>
                 <li><a href="#home">Home</a></li>
@@ -26,18 +23,21 @@
                 <li><a href="#sec4">Blog</a></li>
                 <li><a href="#sec5">Contacts</a></li>
           </ul>
-          <div class="vnav-inf">
-            <div class="social-block"><a class="vk fa fa-vk" href="#"></a></div>
-            <div class="social-block"><a class="fb fa fa-facebook" href="#"></a></div>
-            <div class="social-block"><a class="google fa fa-google" href="#"></a></div>
-            <div class="social-block"><a class="inst fa fa-instagram" href="#"></a></div>
-          </div>
+        </div>
+        <div class="vnav-inf">
+          <div class="social-block"><a class="vk fa fa-vk" href="#"></a></div>
+          <div class="social-block"><a class="fb fa fa-facebook" href="#"></a></div>
+          <div class="social-block"><a class="google fa fa-google" href="#"></a></div>
+          <div class="social-block"><a class="inst fa fa-instagram" href="#"></a></div>
         </div>
       </div>
     </nav>
     <main class="main-wrapper">
       <header class="header border-right target text-center vsection-full" id="home">
         <div class="vcontainer vertical-text-center">
+          <div class="cf">
+            <div class="header-logo"><img src="img/logo.png" alt=""></div>
+          </div>
           <div class="cf">
             <div class="vloading-mask">
               <h1 class="h1 vline vline-big vline-big-center vloading-mask-inner">KitchenOfDesign</h1>
@@ -50,14 +50,15 @@
           </div>
         </div>
       </header>
-      <section class="vsection vsection-full border-left target" id="about">
+      <section class="vsection vsection-full target" id="about">
         <div class="vcontainer vertical-text-center">
           <h3 class="h3"><span class="vtitle-inner">Who am <span class="color-corp">I</span>?</span></h3>
           <h4 class="h4 vtitle-small light">Hello, I'm Vsevolod Kurochka. Frontend Developer from Ukraine.<br>I have been crafting beautiful websites and making clients happy!</h4>
           <div class="cf about-wrap"><span class="about-line"></span>
             <div class="cf">
                   <div class="vak-xs-12 vak-sm-6 vak-md-3 about-block">
-                    <div class="about-block-inner"><span class="about-block-line"></span><span class="about-block-circle"></span>
+                    <div class="about-block-inner">
+                      <!--span.about-block-line--><span class="about-block-circle"></span>
                       <div class="about-block-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
                       <div class="about-block-title">
                         <h4 class="h4">I'm responsible
@@ -66,7 +67,8 @@
                     </div>
                   </div>
                   <div class="vak-xs-12 vak-sm-6 vak-md-3 about-block">
-                    <div class="about-block-inner"><span class="about-block-line"></span><span class="about-block-circle"></span>
+                    <div class="about-block-inner">
+                      <!--span.about-block-line--><span class="about-block-circle"></span>
                       <div class="about-block-icon"><i class="fa fa-flag" aria-hidden="true"></i></div>
                       <div class="about-block-title">
                         <h4 class="h4">I'm creative
@@ -75,7 +77,8 @@
                     </div>
                   </div>
                   <div class="vak-xs-12 vak-sm-6 vak-md-3 about-block">
-                    <div class="about-block-inner"><span class="about-block-line"></span><span class="about-block-circle"></span>
+                    <div class="about-block-inner">
+                      <!--span.about-block-line--><span class="about-block-circle"></span>
                       <div class="about-block-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
                       <div class="about-block-title">
                         <h4 class="h4">I'm punctual
@@ -84,7 +87,8 @@
                     </div>
                   </div>
                   <div class="vak-xs-12 vak-sm-6 vak-md-3 about-block">
-                    <div class="about-block-inner"><span class="about-block-line"></span>
+                    <div class="about-block-inner">
+                      <!--span.about-block-line-->
                       <div class="about-block-icon"><i class="fa fa-comments-o" aria-hidden="true"></i></div>
                       <div class="about-block-title">
                         <h4 class="h4">I'm friendly
@@ -96,67 +100,113 @@
           </div>
         </div>
       </section>
-      <section class="vsection vsection-full target border-left" id="portfolio">
+      <section class="vsection vsection-full target" id="portfolio">
         <div class="vcontainer">
-          <h3 class="h3"><span class="vtitle-inner">Portfolio</span></h3>
-          <div class="vtabs-wrap">
-            <div class="vtabs-links">
-              <ul class="vtabs-list">
-                    <li class="active"><a class="vtabs-link" data-tab="tab" data-tab-target="#vtab1">Development</a></li>
-                    <li><a class="vtabs-link" data-tab="tab" data-tab-target="#vtab2">Wordpress</a></li>
-                    <li><a class="vtabs-link" data-tab="tab" data-tab-target="#vtab3">Responsive</a></li>
-              </ul>
-            </div>
-            <div class="vtabs-content padding-content">
-              <div class="vtabs-content-inner active" id="vtab1">
-                    <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
-                      <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
-                        <!--img(class="vloop-image--hover" src=hoverSrc)-->
-                        <div class="vloop-details">
-                          <div class="vloop-details-inner"><span class="vloop-title">Role owners in Marketing Management and Sales?</span></div>
+          <div class="vrow">
+            <h3 class="h3"><span class="vtitle-inner">Portfolio</span></h3>
+            <div class="vtabs-wrap">
+              <div class="vtabs-links">
+                <ul class="vtabs-list">
+                      <li class="active"><a class="vtabs-link" data-tab="tab" data-tab-target="#vtab1">Development</a></li>
+                      <li><a class="vtabs-link" data-tab="tab" data-tab-target="#vtab2">Wordpress</a></li>
+                      <li><a class="vtabs-link" data-tab="tab" data-tab-target="#vtab3">Responsive</a></li>
+                </ul>
+              </div>
+              <div class="vtabs-content padding-content">
+                <div class="cf vtabs-content-inner active" id="vtab1">
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Role owners in Marketing Management and Sales?</span></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
-                      <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
-                        <!--img(class="vloop-image--hover" src=hoverSrc)-->
-                        <div class="vloop-details">
-                          <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
-                      <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
-                        <!--img(class="vloop-image--hover" src=hoverSrc)-->
-                        <div class="vloop-details">
-                          <div class="vloop-details-inner"><span class="vloop-title">Business on Amazon.com</span></div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Business on Amazon.com</span></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
-                      <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
-                        <!--img(class="vloop-image--hover" src=hoverSrc)-->
-                        <div class="vloop-details">
-                          <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
-                      <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
-                        <!--img(class="vloop-image--hover" src=hoverSrc)-->
-                        <div class="vloop-details">
-                          <div class="vloop-details-inner"><span class="vloop-title">Business on Amazon.com</span></div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Business on Amazon.com</span></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
-                      <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
-                        <!--img(class="vloop-image--hover" src=hoverSrc)-->
-                        <div class="vloop-details">
-                          <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                </div>
+                <div class="cf vtabs-content-inner" id="vtab2">
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Role owners in Marketing Management and Sales?</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Business on Amazon.com</span></div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="cf vtabs-content-inner" id="vtab3">
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/free-business-plan-templates.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Role owners in Marketing Management and Sales?</span></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="vak-xs-12 vak-sm-6 vak-md-4 vloop-wrap">
+                        <div class="vloop"><img class="vloop-image--main" src="img/trand.jpg"><a class="vloop-link" href="#"></a>
+                          <!--img(class="vloop-image--hover" src=hoverSrc)-->
+                          <div class="vloop-details">
+                            <div class="vloop-details-inner"><span class="vloop-title">Liftmarketing</span></div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
               </div>
             </div>
           </div>
