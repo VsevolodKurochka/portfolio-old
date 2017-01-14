@@ -17,7 +17,8 @@
     border: 10px solid setColor(black);
     transform: scale(0.2);
     transform-origin: center;
-    @include transitionMake(all, cubic-bezier(0, 0.9, 0.36, 1.35), 0.5s)
+    //@include transitionMake(all, cubic-bezier(0, 0.9, 0.36, 1.35), 0.5s)
+    @include transitionMake(all, cubic-bezier(0.63, -0.43, 0.49, 1.51), 0.5s)
     &-inner{
     	position: relative;
     	height: 100%;
@@ -42,6 +43,7 @@
 					color: setColor(black);
 					text-transform: uppercase;
 					font-weight: bold;
+					@extend .rubik;
 					@extend .tdn;
 					@extend .relative;
 					@extend .transition;

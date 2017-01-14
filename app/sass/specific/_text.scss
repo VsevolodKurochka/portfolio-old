@@ -8,7 +8,7 @@ $h2-font-sizes: (
   exs:  17px,
   sm:   30px
 );
-$h3-font-sizes: (
+$vtitle: (
   md:   60px
 );
 .h1{
@@ -22,12 +22,13 @@ $h3-font-sizes: (
   @include font-size($h2-font-sizes);
   @extend .thin;
 }
-.h3{
-  @include font-size($h3-font-sizes);
+.vtitle{
+  @include font-size($vtitle);
   @extend .text-center;
+  @extend .ttu;
+  @extend .light;
   line-height: 1;
   font-size: 45px;
-  margin-bottom: 45px;
 }
 .h{
   &4{
@@ -51,6 +52,11 @@ $h3-font-sizes: (
     &.b-m{
       margin-bottom: 70px;
     }
+  }
+}
+@include resp-min(md){
+  .vtitle{
+    margin-bottom: 75px;
   }
 }
 @include resp-max(sm){

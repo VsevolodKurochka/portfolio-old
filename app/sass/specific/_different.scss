@@ -72,7 +72,7 @@
     @extend .text-center;
     margin: 0 auto 30px;
     padding: 30px 15px;
-    border: 15px solid #f3f3f3;
+    border: 15px solid $about();
     color: setColor(black, dark);
   }
   &-inner{
@@ -234,19 +234,19 @@
   overflow: hidden;
   width: 100%;
   height: 215px;
-  &:before{
-    @extend .pseudo;
-    @extend .transition;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 2;
-    //background: linear-gradient(to left, #44A08D , #093637);
-    background-color: #f3f3f3;
-  }
+  // &:before{
+  //   @extend .pseudo;
+  //   @extend .transition;
+  //   left: 0;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   z-index: 2;
+  //   background: linear-gradient(to left, #44A08D , #093637);
+  //   background-color: #f3f3f3;
+  // }
   &-wrap{
     padding: 0;
     @extend .transition;
@@ -277,51 +277,26 @@
   }
   &-title{
     display: block;
-    text-align: center;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 17px;
+    font-size: 15px;
   }
   &-details{
-    // position: absolute;
-    // left: 0;
-    // bottom: 0;
-    // width: 100%;
-    // padding: 15px;
-    // opacity: 0;
-    // z-index: 2;
-    // text-align: center;
-    // background-color: transparentize(setColor(corp, light), 0.2);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: 30px;
-    opacity: 0;
-    z-index: 2;
-    text-align: center;
     @extend .bold;
     @extend .transition;
-    &-inner{
-      position: relative;
-      height: 100%;
-      border: 10px solid setColor(corp);
-    }
+    position: absolute;
+    left: 0;
+    width: 100%;
   }
   &:hover &-details{
     opacity: 1;
     transform: none;
   } 
-  &:hover{
-    &:before{
-      opacity: 0.9;
-      visibility: visible;
-    }
-  }
+  // &:hover{
+  //   &:before{
+  //     opacity: 0.9;
+  //     visibility: visible;
+  //   }
+  // }
   &:hover &-image{
     &--main{
       transform: scale(1.3);
@@ -330,7 +305,14 @@
     //   transform: translateY(0) scale(1.3);
     // }
   }
-  height: 200px;
+  @include resp-max(sm){
+    &-details{
+
+      bottom: 0;
+      background-color: transparentize(setColor(light), 0.15);
+      padding: 15px;
+    }
+  }
   @include resp-min(sm){
     height: 250px;
     img{
@@ -340,6 +322,28 @@
       left: 50%;
       margin-left: -300px;
       top: 0;
+    }
+    &-details{
+      top: 0;
+      height: 100%;
+      padding: 30px;
+      background-color: transparentize(setColor(black,light), 0.2);
+      opacity: 0;
+      z-index: 2;
+      text-align: center;
+      &-inner{
+        position: relative;
+        height: 100%;
+        border: 10px solid setColor(corp);
+      }
+    }
+    &-title{
+      font-size: 17px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
   @include resp-min(lg){
@@ -428,9 +432,11 @@
 .border{
   overflow: hidden;
   padding: 75px 0 160px;
+
   &:before{
     border: 1024px solid transparent;
     border-bottom: 75px solid #fff;
+    z-index: 2;
   }
   @include resp-min(md){
     padding-bottom: 200px;
@@ -479,14 +485,14 @@
     &-inner{
       position: relative;
       padding: 30px;
-      border: 2px solid setColor(black, light);
+      border: 2px solid $about;
       @extend .transition;
       &:after,
       &:before{
         @extend .pseudo;
         @extend .transition;
         top: -62px;
-        background-color: setColor(black, light);
+        background-color: $about;
       }
       &:before{
         left: 50%;
@@ -544,7 +550,7 @@
   &-block-circle,
   &-line{
     position: absolute;
-    background-color: setColor(black,light);
+    background-color: $about;
   }
   @include resp-max(md){
     &-block{
@@ -590,5 +596,93 @@
   .padding-content{
     padding-left: getComp(gutter) * 7;
     padding-right: getComp(gutter) * 7;
+  }
+}
+%blog-fluid{
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.blog{
+  &-post{   
+    &-header{
+      @extend .transition;
+      line-height: 1;
+    } 
+    &-image{
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      @extend %blog-fluid;
+      @extend .transition;
+      img{
+        width: 100%;
+      }
+      &:after{
+        background-color: rgba(0, 0, 0, 0.75);
+        @extend .pseudo;
+        @extend %blog-fluid;
+      }
+    }
+    &-number{
+      display: block;
+      width: 100%;
+      padding: 11px 15px;
+      font-size: 30px;
+      text-align: center;
+      background-color: setColor(corp);
+      color: setColor(light);
+      @extend .bold;
+      @extend .transition;
+    }
+    &-title{
+      margin-top: 15px;
+      @extend .transition;
+      a{
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+    &-details{
+      z-index: 2;
+      @extend .transition;
+      &:before{
+        left: 0;
+        top: 0;
+        width: 45%;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+      }
+    }
+    &-wrap{
+      position: relative;
+      overflow: hidden;
+    }
+    &-wrap:hover &-image{
+      opacity: 0.8;
+    }
+    &-wrap:hover &-header{
+      color: setColor(light);
+    }
+    &-wrap:hover &-number{
+      color: setColor(black);
+    }
+    &-wrap:hover &-title{
+      color: setColor(corp);
+    }
+    &-wrap:hover &-details{
+      transform: translateX(50px);
+    }
+  }
+  @include resp-min(md){
+    &-post{
+      &-row{
+        margin-top: 110px;
+        margin-bottom: 110px;
+      }
+      &-title{
+        font-size: 21px;
+      }
+    }
   }
 }

@@ -8,38 +8,40 @@ html(lang="ru")
 	body
 		include includes/nav/nav
 		main.main-wrapper
-			header.header.border-right.target.text-center.vsection-full#home
-				.vcontainer.vertical-text-center
+			header.header.border-right.target.text-center.vsection-full.vsection-full-center#home
+				ul.index-1#intro
+					li.layer.background(data-depth="0.4")
+						img(src="img/header.png")
+				.vcontainer.index-2
 					.cf
 						.header-logo
-							img(src="img/logo.png" alt="")
+							a(href='#'): include includes/header/logo
 					.cf
 						.vloading-mask
 							h1.h1.vline.vline-big.vline-big-center.vloading-mask-inner KitchenOfDesign
 					.cf
 						.vloading-mask
 							h2.h2.vloading-mask-inner The place where the idea can preparing
-			section.vsection.vsection-full.target#about
-				.vcontainer.vertical-text-center
-					h3.h3
-						span.vtitle-inner Who am <span class="color-corp">I</span>?
-					h4.h4.vtitle-small.light Hello, I'm Vsevolod Kurochka. Frontend Developer from Ukraine.<br>I have been crafting beautiful websites and making clients happy!
-					.cf.about-wrap
-						span.about-line
-						.cf
-							+about("fa fa-heart-o", "circle") I'm responsible
-							+about("fa fa-flag", "circle") I'm creative
-							+about("fa fa-clock-o", "circle") I'm punctual
-							+about("fa fa-comments-o") I'm friendly
-			section.vsection.vsection-full.target#portfolio
+			section.vsection.vsection-full.vsection-full-center.target#about
 				.vcontainer
 					.vrow
-						h3.h3
-							span.vtitle-inner Portfolio
+						+title Who am <span class="color-corp">I</span>?
+						h4.h4.vtitle-small.light Hello, I'm Vsevolod Kurochka. Frontend Developer from Ukraine.<br>I have been crafting beautiful websites and making clients happy!
+						.cf.about-wrap
+							span.about-line
+							.cf
+								+about("fa fa-heart-o", "circle") I'm responsible
+								+about("fa fa-flag", "circle") I'm creative
+								+about("fa fa-clock-o", "circle") I'm punctual
+								+about("fa fa-comments-o") I'm friendly
+			section.vsection.target#portfolio
+				.vcontainer
+					.vrow
+						+title Portfolio
 						.vtabs-wrap
 							.vtabs-links
 								ul.vtabs-list
-									+tabItem("#vtab1", "active") Development
+									+tabItem("#vtab1", "active") All
 									+tabItem("#vtab2") Wordpress
 									+tabItem("#vtab3") Responsive
 							.vtabs-content.padding-content
@@ -51,12 +53,17 @@ html(lang="ru")
 									+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
 									+loop("img/trand.jpg") Liftmarketing
 								.cf.vtabs-content-inner#vtab2
-									+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
 									+loop("img/trand.jpg") Liftmarketing
 									+loop("img/free-business-plan-templates.jpg") Business on Amazon.com
+									+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
 								.cf.vtabs-content-inner#vtab3
 									+loop("img/free-business-plan-templates.jpg") Role owners in Marketing Management and Sales?
 									+loop("img/trand.jpg") Liftmarketing
+			section.vsection
+				+title RECENT BLOG
+				.cf
+					+post("http://wpdemos.themezaa.com/brando/agency/wp-content/uploads/2016/02/blog-post-img1.jpg", "01", "14 01 2017", "DESIGN IS NOT JUST WHAT IT LOOKS LIKE AND FEELS LIKE.")
+					+post("http://www.hdbloggers.net/wp-content/uploads/2016/06/Space-Wallpaper-Nebula.jpg", "02", "11 01 2017", "DESIGN IS NOT JUST WHAT IT LOOKS LIKE AND FEELS LIKE.")
 		// MODAL FORM
 		.vmodal.fade#modalform
 			.vmodal-dialog
@@ -73,3 +80,6 @@ html(lang="ru")
 				.vmodal-footer.text-center
 					p.text_smaller *Ваши данные <span class="bold">никогда не будут</span><br>переданы 3-м лицам
 		//button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе
+		script.
+			var intro = document.getElementById('intro');
+			var parallax = new Parallax(intro);

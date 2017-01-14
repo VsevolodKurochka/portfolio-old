@@ -16,11 +16,18 @@
     vertical-align: middle;   
   }
 }
-@media (min-width: 1200px) and (min-height: 600px){
-  .vertical-text-center{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    
+@for $i from 1 through 3{
+  .index-#{$i}{
+    z-index: $i;
+  }
+}
+.text{
+  &-small{
+    font-size: 11px;
+  }
+}
+@for $i from 1 through 2{
+  .ls-#{$i}{
+    letter-spacing: #{$i}px;
   }
 }

@@ -1,3 +1,5 @@
+mixin style(href)
+	link(rel="stylesheet" href=href)
 mixin item(href, active)
 	if(active)
 		li(class=active): a( href=href ): block
@@ -25,3 +27,18 @@ mixin about(icon, circle)
 				i(aria-hidden="true" class=icon)
 			.about-block-title
 				h4.h4: block
+mixin title
+	h3.vtitle.rubik: span.vtitle-inner: block
+mixin post(image, number, date, title)
+	article.blog-post-wrap
+		.blog-post-image
+			img(src=image)
+		.vcontainer.blog-post-details
+			.vrow.blog-post-row
+				.vak-sm-2.vak-md-1
+					span.blog-post-number #{number}
+				.vak-sm-10.vak-md-10
+					.blog-post-header
+						span.text-small.ls-2 #{date}
+					h4.blog-post-title.ttu
+						a(href="#") #{title}

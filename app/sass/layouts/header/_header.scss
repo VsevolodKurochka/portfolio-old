@@ -4,8 +4,8 @@
 	z-index: 1;
 	color: #fff;
 	padding: 75px 0 160px;
-	@include bg('../img/header.png', center center, no-repeat, cover);
-	background-attachment: fixed;
+	// @include bg('../img/header.png', center center, no-repeat, cover);
+	// background-attachment: fixed;
 	&:after{
 		@extend .pseudo;
 		left: 0;
@@ -13,17 +13,17 @@
 		width: 100%;
 		height: 100%;
 		background-color: rgba(0,0,0,0.6);
-		z-index: -1;
+		z-index: 1;
 	}
 	&-logo{
-		img{
+		&-inner{
 			max-height: 100px;
 		}
 	}
 	@include resp-min(sm){
 		&-logo{
-			img{
-				max-height: 150px;
+			&-inner{
+				max-height: 100px;
 			}
 		}
 	}
@@ -33,4 +33,28 @@
 	// @include resp-min(lg){
 	// 	padding: 250px 0;
 	// }
+}
+#bird{
+	fill: setColor(corp);
+}
+#intro{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	img{
+		position: absolute;
+		width: 110%;
+		height: 110%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		max-width: none;
+	}
+	li{
+		width: 100%;
+		height: 100%;
+	}
 }
