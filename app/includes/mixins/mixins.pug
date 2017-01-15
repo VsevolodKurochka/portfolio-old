@@ -1,15 +1,21 @@
+// Add style
 mixin style(href)
 	link(rel="stylesheet" href=href)
-mixin item(href, active)
+
+// Navigation items
+mixin navItem(href, active)
 	if(active)
 		li(class=active): a( href=href ): block
 	else	
 		li: a( href=href ): block
+
+// Tab
 mixin tabItem(href, active)
 	if(active)
 		li(class=active): a(class="vtabs-link" data-tab="tab" data-tab-target=href): block
 	else
 		li: a(class="vtabs-link" data-tab="tab" data-tab-target=href): block
+// Portfolio
 mixin loop(mainSrc, hoverSrc)
 	.vak-xs-12.vak-sm-6.vak-md-4.vloop-wrap
 		.vloop
@@ -17,6 +23,8 @@ mixin loop(mainSrc, hoverSrc)
 			a(href="#" class="vloop-link")
 			//img(class="vloop-image--hover" src=hoverSrc)
 			.vloop-details: .vloop-details-inner: span.vloop-title: block
+
+// About blocks
 mixin about(icon, circle)
 	.vak-xs-12.vak-sm-6.vak-md-3.about-block
 		.about-block-inner
@@ -27,18 +35,28 @@ mixin about(icon, circle)
 				i(aria-hidden="true" class=icon)
 			.about-block-title
 				h4.h4: block
+
+// Section title					
 mixin title
 	h3.vtitle.rubik: span.vtitle-inner: block
+
+// Blog
 mixin post(image, number, date, title)
-	article.blog-post-wrap
+	article.blog-post
 		.blog-post-image
 			img(src=image)
 		.vcontainer.blog-post-details
 			.vrow.blog-post-row
-				.vak-sm-2.vak-md-1
+				.vak-sm-2.vak-md-1.vhidden-xs
 					span.blog-post-number #{number}
 				.vak-sm-10.vak-md-10
-					.blog-post-header
-						span.text-small.ls-2 #{date}
+					.blog-post-header.text-small.ls-2
+						a(href='#').ttu.bold Дизайн | 
+						span #{date}
 					h4.blog-post-title.ttu
 						a(href="#") #{title}
+
+// Social block
+mixin social(socialHref, socialClass)
+	.social-block
+		a(class=socialClass href=socialHref)

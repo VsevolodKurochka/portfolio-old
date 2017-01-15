@@ -6,24 +6,14 @@ button(type="button" class="vnav-menu-btn js-toggle-menu" data-menu=".vnav-menu"
     span
   span.text Menu
 nav.vnav
-  .vnav-inner
-    //- .vnav-logo
-    //-   .block-inline.vvisible-md.vvisible-lg
-    //-     a(href="#")
-    //-       img(src="img/logo.png" alt="")
-    .vnav-menu
-      ul
-        +item("#home") Home
-        +item("#about") About Me
-        +item("#portfolio") Portfolio
-        +item("#sec4") Blog
-        +item("#sec5") Contacts
-    .vnav-inf
-      .social-block
-        a(href="#" class="vk fa fa-vk")
-      .social-block
-        a(href="#" class="fb fa fa-facebook")
-      .social-block
-        a(href="#" class="google fa fa-google")
-      .social-block
-        a(href="#" class="inst fa fa-instagram")
+  ul.vnav-menu
+    +navItem("#home") Home
+    +navItem("#about") About Me
+    +navItem("#portfolio") Portfolio
+    +navItem("#blog") Blog
+    +navItem("#sec5") Contacts
+  .vnav-inf
+    +social("#", "fa fa-vk vk")
+    +social("#", "fa fa-facebook facebook")
+    +social("#", "fa fa-google google")
+    +social("#", "fa fa-instagram instagram")

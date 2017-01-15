@@ -1,0 +1,129 @@
+.about{
+  &-wrap{
+    padding-top: 90px;
+  }
+  &-title{
+    @extend .light;
+    @extend .text-center;
+    margin: 0 auto 30px;
+    padding: 30px 15px;
+    border: 15px solid $about;
+    color: setColor(black, dark);
+  }
+  &-block{
+    text-align: center;  
+    &-icon{
+      font-size: 50px;
+      line-height: 1;
+      margin-bottom: 30px;
+      i{
+        @extend .transition;
+      }
+    }
+    &-inner{
+      position: relative;
+      padding: 30px;
+      border: 2px solid $about;
+      @extend .transition;
+      &:after,
+      &:before{
+        @extend .pseudo;
+        @extend .transition;
+        top: -62px;
+        background-color: $about;
+      }
+      &:before{
+        left: 50%;
+        height: 60px;
+        width: 2px;
+        margin-left: -1px;
+      }
+      &:after{
+        left: 0;
+        width: 100%;
+        height: 2px;
+      }
+    }
+    &-circle{
+      top: -75px;
+      right: -34px;
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+      z-index: 1;
+      @extend .transition;
+    }
+    &:first-child &-inner:after,
+    &:last-child &-inner:after{
+      width: 50%;
+    }
+    &:first-child &-inner:after{
+      left: auto;
+      right: 0;
+    }
+    &:hover &-inner{
+      border-color: setColor(corp);
+    }
+    &:hover &-icon i{
+      color: setColor(corp);
+    }
+  }
+  &-line{
+    margin-left: -1px;
+    top: -36px;
+    left: 50%;
+    height: 60px;
+    width: 2px;
+  }
+  &-block-circle,
+  &-line{
+    position: absolute;
+    background-color: $about;
+  }
+  @include resp-min(sm){
+    &-title{
+      width: 500px;
+      font-size: 20px;
+      padding: 30px 60px;
+    }
+  }
+  @include resp-max(md){
+    &-block{
+      margin-bottom: 60px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    @include resp-min(sm){
+      &-block{
+        &:nth-child(2) &-circle,
+        &:nth-child(3) &-circle,
+        &:nth-child(3) &-inner:after,
+        &:nth-child(4) &-inner:after{
+          display: none;
+        }
+        &:nth-child(2) &-inner:after{
+          width: 50%;
+        }
+      }
+    }
+  }
+  @include resp-max(sm){
+    &-wrap{
+      padding-top: 23px;
+    }
+    &-block{
+      &-inner{
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+      &-circle,
+      &-inner:after{
+        display: none;
+      }
+      &:nth-child(1) &-inner:before{
+        display: none;
+      }
+    }
+  }
+}

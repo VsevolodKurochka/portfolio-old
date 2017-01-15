@@ -29,16 +29,55 @@ $vtitle: (
   @extend .light;
   line-height: 1;
   font-size: 45px;
+  margin-bottom: 60px;
+  &-inner{
+    @extend .relative;
+    z-index: 1;
+    &:before,
+    &:after{
+      @extend .pseudo;
+      @extend .transition;
+      top: 40%;
+      background-color: setColor(corp);
+      z-index: -1;
+      transform: rotate(-45deg);
+      animation: titleRotate 5s infinite;
+    }
+    &:after{
+      left: -28px;
+      margin-top: -1px;
+      width: 90px;
+      height: 2px;    
+    }
+    &:before{
+      left: -15px;
+      width: 60px;
+      height: 1px;
+      margin-top: -5px;
+    }
+    @at-root{
+      @keyframes titleRotate{
+        0%,100%{
+          transform: rotate(-45deg) translateY(0);
+        }
+        50%{
+          transform: rotate(-45deg) translateY(5px);
+        }
+      }
+    }
+  }
 }
-.h{
-  &4{
-    //color: #272727;
-    &.s-m{
-      margin-bottom: 25px;
-    }
-    &.b-m{
-      margin-bottom: 40px;
-    }
+@include resp-min(md){
+  .vtitle{
+    margin-bottom: 75px;
+  }
+}
+.h4{
+  &.s-m{
+    margin-bottom: 25px;
+  }
+  &.b-m{
+    margin-bottom: 40px;
   }
 }
 @include resp-min(sm){
@@ -54,11 +93,7 @@ $vtitle: (
     }
   }
 }
-@include resp-min(md){
-  .vtitle{
-    margin-bottom: 75px;
-  }
-}
+
 @include resp-max(sm){
   .h{
     &1,
@@ -67,7 +102,6 @@ $vtitle: (
     }
   }
 }
-//$sizes in _config.scss
 .color{
   &-corp{
     color: setColor(corp);

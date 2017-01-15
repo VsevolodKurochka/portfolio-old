@@ -1,0 +1,110 @@
+%blog-fluid{
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.blog{
+  &-post{   
+    position: relative;
+    overflow: hidden;
+    a{
+      color: inherit;
+      text-decoration: none;
+    }
+    &-row{
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    &-header{
+      @extend .transition;
+      line-height: 1;
+    } 
+    &-image{
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+      @extend %blog-fluid;
+      @extend .transition;
+      
+      &:after{
+        background-color: rgba(0, 0, 0, 0.75);
+        @extend .pseudo;
+        @extend %blog-fluid;
+      }
+    }
+    &-number{
+      display: block;
+      width: 67px;
+      height: 64px;
+      padding: 11px 15px;
+      font-size: 30px;
+      text-align: center;
+      background-color: setColor(corp);
+      color: setColor(light);
+      @extend .bold;
+      @extend .transition;
+    }
+    &-title{
+      margin-top: 15px;
+      @extend .transition;
+      
+    }
+    &-details{
+      z-index: 2;
+      @extend .transition;
+      &:before{
+        left: 0;
+        top: 0;
+        width: 45%;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+      }
+    }
+    &:hover &-image{
+      opacity: 0.8;
+    }
+    &:hover &-header{
+      color: setColor(light);
+    }
+    &:hover &-number{
+      color: setColor(black);
+    }
+    &:hover &-title{
+      color: setColor(corp);
+    }
+    
+  }
+  @include resp-max(sm){
+    &-post{
+      &-image{
+        img{
+          max-width: 270%;
+        }
+      }
+    }
+  }
+  @include resp-min(sm){
+    &-post{
+      &-image{
+        img{
+          max-width: none;
+          width: 100%;
+        }
+      }
+    }
+  }
+  @include resp-min(md){
+    &:hover &-details{
+      transform: translateX(50px);
+    }
+    &-post{
+      &-row{
+        margin-top: 110px;
+        margin-bottom: 110px;
+      }
+      &-title{
+        font-size: 21px;
+      }
+    }
+  }
+}

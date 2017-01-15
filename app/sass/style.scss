@@ -1,26 +1,31 @@
-@import 'base/_base.scss';
-@import "helpers/_helpers.scss";
+@import "helpers/variables";
+@import "helpers/maps";
+@import "helpers/functions";
+@import "helpers/mixins";
 
+@import 'base/reset';
+@import 'base/base';
+@import 'base/fonts';
 
-/* ===================== 
-Start: GRID SYSTEM      
-======================== */
-@import 'grid/_grid.scss'; 
-/* =====================
-End:  GRID SYSTEM
-======================== */
-/* ===================== 
-Start: MAIN STYLES      
-======================== */
-@import 'components/_components.scss';
-/* =====================
-End:  MAIN STYLES
-======================== */
+@import 'layouts/grid';
+@import 'layouts/nav';
+@import 'layouts/header';
+@import 'layouts/footer';
 
-@import 'layouts/_layouts.scss';
+@import 'components/classes';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/list';
+@import 'components/collapse';
 
-@import "specific/_specific.scss";
+@import "dev/text";
+@import "dev/dev";
+@import "dev/about";
+@import "dev/blog";
 
-@import 'vendor/_vendor.scss';
+@import 'fontawesome/font-awesome';
 
-@import 'fontawesome/_font-awesome.scss';
+@import 'vendor/modal';
+//@import 'vendor/animations';
+//@import 'vendor/carousel';
+@import 'vendor/tabs';
