@@ -61,7 +61,7 @@
   // }
   &-backdrop{
     @extend %visibility;
-    z-index: 1000;
+    z-index: z('modalBackdrop');
     background-color: #000000;
     &.fade{
       opacity: 0;

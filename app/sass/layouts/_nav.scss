@@ -2,7 +2,7 @@
 .vnav{
 	@at-root{
 		%vnav-transitionDef{
-			@include transitionMake($tr-dur: .3s);
+			@include transitionMake();
 		}
 	}
 	display: flex;

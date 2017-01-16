@@ -9,10 +9,10 @@ html(lang="ru")
 		include includes/nav/nav
 		main.main-wrapper
 			header.header.fluid.fluid-center.border-right.text-center.target#home
-				ul.index-1#intro
+				ul#intro
 					li.layer.background(data-depth="0.4")
 						img(src="img/header.png")
-				.header-inner.relative.index-2
+				.header-inner.relative.index-1
 					.header-logo
 						a(href='#'): include includes/header/logo
 					.header-text
@@ -76,9 +76,9 @@ html(lang="ru")
 						input(type="email" placeholder="E-mail")
 						input(type="text" placeholder="Телефон")
 						button.vbtn.vbtn-effect-bounce-top.vbtn-corp Получить!
-				.vmodal-footer.text-center
-					p.text_smaller *Ваши данные <span class="bold">никогда не будут</span><br>переданы 3-м лицам
-		//button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе
+				.vmodal-footer.text-center.text-small
+					p *Ваши данные <span class="bold">никогда не будут</span><br>переданы 3-м лицам
+		//- button(class="vbtn vbtn-effect-shutter-vertical-out vbtn-corp" data-modal="vmodal" data-modal-target="#modalform") Забронировать место в онлайн группе
 		script.
 			var intro = document.getElementById('intro');
 			var parallax = new Parallax(intro);

@@ -4,7 +4,7 @@ $grid-system: (
 	columnName            : "vak",
 	width 								: 100%,
 	gutter 								: 15px,
-	container_sm          : 750px,
+	container_sm					: 750px,
 	container_md					: 970px,
 	container_lg 					: 1170px,
 	container_small       : 970px,
@@ -20,12 +20,17 @@ $breakpoints: (
   exs       : 320px
 );
 
+/// Карта цветов, собирает все цвета приложения
+/// @access private
+/// @type Map
+/// @prop {String} key - Имя цветов
+/// @prop {Number} value - значение цвета, соответствущее имени
 $colors: (
 	black: (
 		base 	: #4c4c4c,
 		black : black,
-		light : #f3f3f3,
-		dark	: #333333
+		dark	: #333333,
+		light : #f3f3f3
 	),
 	green: (
 		base 	: #5bb85d
@@ -45,9 +50,10 @@ $colors: (
 /// @prop {String} key - Имя слоя
 /// @prop {Number} value - значение Z, соответствущее ключу
 $z-indexes: (
-	'modal'				: 1000,
-	'nav'					: 10,
-	'navButton'		: 11,
-	'default'     : 1,
-	'below'       : -1
+	'modal'					: 1000,
+	'modalBackdrop' : 999,
+	'nav'						: 10,
+	'navButton'			: 11,
+	'default'     	: 1,
+	'below'       	: -1
 );

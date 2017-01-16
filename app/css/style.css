@@ -472,8 +472,8 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 .vnav-menu, .vnav-menu-btn, .vnav-menu-btn:after, .vnav-menu-btn .lines span, .vnav-menu-btn .text {
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
 }
 
 .vnav-open .vnav {
@@ -725,7 +725,6 @@ End:  HIDDEN AND VISIBLE UTILITIES
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1;
 }
 
 .header-inner {
@@ -1826,7 +1825,7 @@ End:  HIDDEN AND VISIBLE UTILITIES
 }
 
 .vmodal-backdrop {
-  z-index: 1000;
+  z-index: 999;
   background-color: #000000;
 }
 

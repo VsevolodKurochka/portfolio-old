@@ -1,21 +1,21 @@
-// Add style
+//- Add style
 mixin style(href)
 	link(rel="stylesheet" href=href)
 
-// Navigation items
+//- Navigation items
 mixin navItem(href, active)
 	if(active)
 		li(class=active): a( href=href ): block
 	else	
 		li: a( href=href ): block
 
-// Tab
+//- Tab
 mixin tabItem(href, active)
 	if(active)
 		li(class=active): a(class="vtabs-link" data-tab="tab" data-tab-target=href): block
 	else
 		li: a(class="vtabs-link" data-tab="tab" data-tab-target=href): block
-// Portfolio
+//- Portfolio
 mixin loop(mainSrc, hoverSrc)
 	.vak-xs-12.vak-sm-6.vak-md-4.vloop-wrap
 		.vloop
@@ -24,7 +24,7 @@ mixin loop(mainSrc, hoverSrc)
 			//img(class="vloop-image--hover" src=hoverSrc)
 			.vloop-details: .vloop-details-inner: span.vloop-title: block
 
-// About blocks
+//- About blocks
 mixin about(icon, circle)
 	.vak-xs-12.vak-sm-6.vak-md-3.about-block
 		.about-block-inner
@@ -36,11 +36,11 @@ mixin about(icon, circle)
 			.about-block-title
 				h4.h4: block
 
-// Section title					
+//- Section title					
 mixin title
 	h3.vtitle.rubik: span.vtitle-inner: block
 
-// Blog
+//- Blog
 mixin post(image, number, date, title)
 	article.blog-post
 		.blog-post-image
@@ -56,7 +56,7 @@ mixin post(image, number, date, title)
 					h4.blog-post-title.ttu
 						a(href="#") #{title}
 
-// Social block
+//- Social block
 mixin social(socialHref, socialClass)
 	.social-block
 		a(class=socialClass href=socialHref)
